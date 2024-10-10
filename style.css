@@ -1,0 +1,234 @@
+@font-face {
+    font-family: 'poppins';
+    src: url('Poppins-Regular.ttf');
+}
+
+@font-face {
+    font-family: 'poppins_bold';
+    src: url('Poppins-Bold.ttf');
+}
+
+@font-face {
+    font-family: 'sf_regular';
+    src: url('SFPRODISPLAYREGULAR.OTF');
+}
+
+@font-face {
+    font-family: 'sf_bold';
+    src: url('SFPRODISPLAYBOLD.OTF');
+}
+
+@font-face {
+    font-family: 'sf_medium';
+    src: url('SFPRODISPLAYMEDIUM.OTF');
+}
+
+@font-face {
+    font-family: 'sf_thin_italic';
+    src: url('SFPRODISPLAYTHINITALIC.OTF');
+}
+
+*{
+
+    font-family: 'sf_regular', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: none;
+    border: none;
+    text-decoration: none;
+    transition: all .2s linear;
+}
+
+html, body {
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    border: 0;
+    padding: 0;
+    background-color: rgb(208, 208, 208);
+}
+
+main {
+    position: relative;
+    width: 90%;
+    height: 600px;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.text_page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    height: 100%;
+    background-image: url('login_text_bg2.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.text_glass {
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 75%;
+    height: 80%;
+    padding: 50px;
+
+    background: rgba(255, 255, 255, 0.4);
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    backdrop-filter: blur( 4px );
+    -webkit-backdrop-filter: blur( 4px );
+
+    border: none;
+}
+
+.text_easy {
+
+    font-size: 3.5rem;
+    font-family: 'sf_bold';
+    color: #FFF;
+}
+
+.text_stay {
+
+    font-size: 3.4rem;
+    font-family: 'sf_bold';
+    margin-bottom: 30px;
+}
+
+.long_text {
+
+    font-size: 1.1rem;
+    color: #FFF;
+}
+
+.login_page {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    height: 100%;
+    background-color: #FFF;
+}
+
+.login_title{
+
+    font-family: 'sf_bold';
+    margin: 20px;
+}
+
+.input_login {
+
+    width: 340px;
+    background: none;
+    border: none;
+    outline: none;
+    font-size: 1rem;
+    padding: 10px;
+    border-bottom: 1px solid #000;
+    margin-bottom: 10px;
+}
+
+.div_forgot {
+
+    display: flex;
+    justify-content: flex-end;
+    width: 340px;
+    margin-top: 10px;
+    margin-bottom: 30px;
+}
+
+.login_btn {
+
+    margin-bottom: 40px;
+}
+
+.btn {
+
+    width: 150px;
+    height: 35px;
+    font-size: 1rem;
+    color: #FFF;
+    outline: none;
+    border: none;
+    border-radius: 50px;
+    background: linear-gradient(90deg, #598BF1 0%, rgba(148, 134, 241, 0.8) 100%);
+    box-shadow: 0px 4px 4px 1px rgba(0, 0, 0, 0.25);
+}
+
+.btn:hover {
+
+    transform: translateY(-3px);
+}
+
+.text_hover {
+
+    color: #2bc6f5;
+}
+
+.text_hover:hover {
+
+    color: #a01bf7;
+}
+
+/* sign_up */
+
+.sign_in {
+
+    display: flex;
+    width: 340px;
+    justify-content: flex-start;
+}
+
+.have_acc {
+
+    margin-right: 5px;
+}
+
+.confirm_password {
+
+    margin-bottom: 30px;
+}
+
+.create_btn {
+
+    margin-bottom: 20px;
+}
+
+/* forgot password */
+
+.forgot_btn {
+
+    margin-top: 30px;
+}
+
+.forgot_text {
+
+    width: 340px;
+    margin-bottom: 40px;
+}
+
+/* success page */
+
+.success_text {
+
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+}
+
+.success_title {
+
+    font-family: 'sf_bold';
+    margin: 20px;
+    color: #25B86A;
+}
