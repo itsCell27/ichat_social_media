@@ -12,8 +12,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=notifications" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=library_add,notifications" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=search" />
+    <script src="https://kit.fontawesome.com/fa0399c701.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="home.css">
 </head>
 <body>
@@ -25,9 +26,12 @@
         </div>
         
         <div class="search">
-            <span class="material-symbols-rounded search_icon">
-                search
-            </span>
+            <button class="search_btn">
+                <span class="material-symbols-rounded">
+                    search
+                </span>
+            </button>
+            
             <input class="search_input" type="search" placeholder="Search">
         </div>
         
@@ -43,9 +47,8 @@
         
     </header>
 
-    <main class="main">
-
-        <div class="menu">
+    <!-- menu -->
+    <div class="menu">
             <div class="icons_menu">
 
                 <div class="icon_wrapper">
@@ -79,39 +82,228 @@
                 </div>
 
             </div>
-        </div>
+    </div>
 
-        <div class="post_feed">
-            
-        </div>
+    <main class="main">
 
+        <!-- post feed -->
+        <section class="post_feed">
+            <div class="post_story">
+
+                <div class="post_story_user">
+                    <img class="post_story_user_img" width="60px" height="60px" src="profile_pic1.jpg">
+                    <p class="post_story_user_text">Your story</p>
+                </div>
+
+                <div class="post_story_user">
+                    <img class="post_story_user_img" width="60px" height="60px" src="profile_pic2.jpg">
+                    <p class="post_story_user_text">Wannabie</p>
+                </div>
+
+                <div class="post_story_user">
+                    <img class="post_story_user_img" width="60px" height="60px" src="profile_pic3.jpg">
+                    <p class="post_story_user_text">Norris</p>
+                </div>
+
+                <div class="post_story_user">
+                    <img class="post_story_user_img" width="60px" height="60px" src="profile_pic4.jpg">
+                    <p class="post_story_user_text">Kler</p>
+                </div>
+
+                <div class="post_story_user">
+                    <img class="post_story_user_img" width="60px" height="60px" src="profile_pic5.jpg">
+                    <p class="post_story_user_text">Cee</p>
+                </div>
+
+                <div class="post_story_user">
+                    <img class="post_story_user_img" width="60px" height="60px" src="profile_pic6.jpg">
+                    <p class="post_story_user_text">Isha</p>
+                </div>
+
+                <div class="post_story_user">
+                    <img class="post_story_user_img" width="60px" height="60px" src="profile_pic4.jpg">
+                    <p class="post_story_user_text">Isha</p>
+                </div>
+
+                <div class="post_story_user">
+                    <img class="post_story_user_img" width="60px" height="60px" src="profile_pic7.jpg">
+                    <p class="post_story_user_text">Isha</p>
+                </div>
+
+            </div>
+
+            <!-- user's post -->
+            <div class="post">
+                <div class="upper_post_tag">
+                    <img class="user_profile" width="50px" height="50px" src="profile_pic3.jpg">
+                    <div class="post_text">
+                        <h3 class="user_name">Charles James</h3>
+                        <p class="post_time">25 min ago</p>
+                    </div>
+                        <ion-icon class="toggle_btn" name="ellipsis-horizontal-outline"></ion-icon>
+                    </div>
+                    <div class="post_description">
+                        <p class="text_description">Overwhelming view!&nbsp;</p>
+                        <p class="text_hashtag">#mountainlife #adventure</p>
+                    </div>
+                    <div class="post_img_wrapper">
+                        <img class="post_img" src="post_sample.jpg">
+                    </div>
+                    <div class="post_icons">
+
+                        <div class="post_icon_wrapper">
+                            <button class="post_icon_btn" onclick="heartBtn()">
+                                <ion-icon name="heart-outline"></ion-icon>
+                            </button>
+                            <p class="post_icon_text">0</p>
+                        </div>
+                    
+                        <div class="post_icon_wrapper">
+                            <button class="post_icon_btn" id="comment">
+                                <ion-icon name="chatbubble-outline"></ion-icon>
+                            </button>
+                            <p class="post_icon_text">0</p>
+                        </div>
+
+                        <div class="post_icon_wrapper">
+                            <button class="post_icon_btn" id="share">
+                                <ion-icon name="arrow-redo-outline"></ion-icon>
+                            </button>
+                            <p class="post_icon_text">share</p>
+                        </div>
+
+                    </div>
+            </div>
+
+            <!-- user's post -->
+            <div class="post">
+                <div class="upper_post_tag">
+                    <img class="user_profile" width="50px" height="50px" src="profile_pic5.jpg">
+                    <div class="post_text">
+                        <h3 class="user_name">Cee Lee</h3>
+                        <p class="post_time">1h</p>
+                    </div>
+                        <ion-icon class="toggle_btn" name="ellipsis-horizontal-outline"></ion-icon>
+                    </div>
+                    <div class="post_description">
+                        <p class="text_description">Overwhelming view!&nbsp;</p>
+                        <p class="text_hashtag">#river #adventure</p>
+                    </div>
+                    <div class="post_img_wrapper">
+                        <img class="post_img" src="post_sample2.jpg">
+                    </div>
+                    <div class="post_icons">
+
+                        <div class="post_icon_wrapper">
+                            <button class="post_icon_btn" onclick="heartBtn()">
+                                <ion-icon name="heart-outline"></ion-icon>
+                            </button>
+                            <p class="post_icon_text">0</p>
+                        </div>
+                    
+                        <div class="post_icon_wrapper">
+                            <button class="post_icon_btn" id="comment">
+                                <ion-icon name="chatbubble-outline"></ion-icon>
+                            </button>
+                            <p class="post_icon_text">0</p>
+                        </div>
+
+                        <div class="post_icon_wrapper">
+                            <button class="post_icon_btn" id="share">
+                                <ion-icon name="arrow-redo-outline"></ion-icon>
+                            </button>
+                            <p class="post_icon_text">share</p>
+                        </div>
+
+                    </div>
+            </div>
+
+        </section>
+
+        
+
+    </main>
+
+    <!-- follow -->
         <div class="follow">
             <p class="suggest">Suggested for you</p>
             <div class="follow_wrapper">
 
                 <div class="follow_container">
-                    <img class="profile follow_profile" width="40px" height="40px" src="profile_pic1.jpg">
+                    <img class="profile follow_profile" width="40px" height="40px" src="profile_pic4.jpg">
                     <div class="follow_text">
                         <p class="follow_name">Staku Virtigo</p>
                         <p class="follow_description">Followed by marcus + 5 more</p>
                     </div>
-                    <svg class="follow_icon" xmlns="http://www.w3.org/2000/svg" height="30px" viewBox="0 -960 960 960" width="30px" fill="#000000"><path d="M517.5-419.5h22v-124h124v-22h-124v-124h-22v124h-124v22h124v124ZM308-280q-22.24 0-38.12-15.88Q254-311.76 254-334v-440q0-22.24 15.88-38.12Q285.76-828 308-828h440q22.24 0 38.12 15.88Q802-796.24 802-774v440q0 22.24-15.88 38.12Q770.24-280 748-280H308Zm0-22h440q12 0 22-10t10-22v-440q0-12-10-22t-22-10H308q-12 0-22 10t-10 22v440q0 12 10 22t22 10Zm-96 118q-22.24 0-38.12-15.88Q158-215.76 158-238v-462h22v462q0 12 10 22t22 10h462v22H212Zm64-622v504-504Z"/></svg>
+                    <button class="btn_follow" id="followButton1" onclick="followBtn(this)">
+                        <svg id="followIcon1" class="follow_icon" xmlns="http://www.w3.org/2000/svg" height="30px" viewBox="0 -960 960 960" width="30px" fill="#000000">
+                            <path d="M517.5-419.5h22v-124h124v-22h-124v-124h-22v124h-124v22h124v124ZM308-280q-22.24 0-38.12-15.88Q254-311.76 254-334v-440q0-22.24 15.88-38.12Q285.76-828 308-828h440q22.24 0 38.12 15.88Q802-796.24 802-774v440q0 22.24-15.88 38.12Q770.24-280 748-280H308Zm0-22h440q12 0 22-10t10-22v-440q0-12-10-22t-22-10H308q-12 0-22 10t-10 22v440q0 12 10 22t22 10Zm-96 118q-22.24 0-38.12-15.88Q158-215.76 158-238v-462h22v462q0 12 10 22t22 10h462v22H212Zm64-622v504-504Z"/>
+                        </svg>
+                    </button>
                 </div>
 
                 <div class="follow_container">
-                    <img class="profile follow_profile" width="40px" height="40px" src="profile_pic1.jpg">
+                    <img class="profile follow_profile" width="40px" height="40px" src="profile_pic7.jpg">
                     <div class="follow_text">
                         <p class="follow_name">Staku Virtigo</p>
                         <p class="follow_description">Followed by marcus + 5 more</p>
                     </div>
-                    <svg class="follow_icon" xmlns="http://www.w3.org/2000/svg" height="30px" viewBox="0 -960 960 960" width="30px" fill="#000000"><path d="M517.5-419.5h22v-124h124v-22h-124v-124h-22v124h-124v22h124v124ZM308-280q-22.24 0-38.12-15.88Q254-311.76 254-334v-440q0-22.24 15.88-38.12Q285.76-828 308-828h440q22.24 0 38.12 15.88Q802-796.24 802-774v440q0 22.24-15.88 38.12Q770.24-280 748-280H308Zm0-22h440q12 0 22-10t10-22v-440q0-12-10-22t-22-10H308q-12 0-22 10t-10 22v440q0 12 10 22t22 10Zm-96 118q-22.24 0-38.12-15.88Q158-215.76 158-238v-462h22v462q0 12 10 22t22 10h462v22H212Zm64-622v504-504Z"/></svg>
+                    <button class="btn_follow" id="followButton2" onclick="followBtn(this)">
+                        <svg id="followIcon2" class="follow_icon" xmlns="http://www.w3.org/2000/svg" height="30px" viewBox="0 -960 960 960" width="30px" fill="#000000">
+                            <path d="M517.5-419.5h22v-124h124v-22h-124v-124h-22v124h-124v22h124v124ZM308-280q-22.24 0-38.12-15.88Q254-311.76 254-334v-440q0-22.24 15.88-38.12Q285.76-828 308-828h440q22.24 0 38.12 15.88Q802-796.24 802-774v440q0 22.24-15.88 38.12Q770.24-280 748-280H308Zm0-22h440q12 0 22-10t10-22v-440q0-12-10-22t-22-10H308q-12 0-22 10t-10 22v440q0 12 10 22t22 10Zm-96 118q-22.24 0-38.12-15.88Q158-215.76 158-238v-462h22v462q0 12 10 22t22 10h462v22H212Zm64-622v504-504Z"/>
+                        </svg>
+                    </button>
+
+                </div>
+
+                <div class="follow_container">
+                    <img class="profile follow_profile" width="40px" height="40px" src="profile_pic2.jpg">
+                    <div class="follow_text">
+                        <p class="follow_name">Staku Virtigo</p>
+                        <p class="follow_description">Followed by marcus + 5 more</p>
+                    </div>
+                    <button class="btn_follow" id="followButton3" onclick="followBtn(this)">
+                        <svg id="followIcon3" class="follow_icon" xmlns="http://www.w3.org/2000/svg" height="30px" viewBox="0 -960 960 960" width="30px" fill="#000000">
+                            <path d="M517.5-419.5h22v-124h124v-22h-124v-124h-22v124h-124v22h124v124ZM308-280q-22.24 0-38.12-15.88Q254-311.76 254-334v-440q0-22.24 15.88-38.12Q285.76-828 308-828h440q22.24 0 38.12 15.88Q802-796.24 802-774v440q0 22.24-15.88 38.12Q770.24-280 748-280H308Zm0-22h440q12 0 22-10t10-22v-440q0-12-10-22t-22-10H308q-12 0-22 10t-10 22v440q0 12 10 22t22 10Zm-96 118q-22.24 0-38.12-15.88Q158-215.76 158-238v-462h22v462q0 12 10 22t22 10h462v22H212Zm64-622v504-504Z"/>
+                        </svg>
+                    </button>
+                </div>
+
+                <div class="follow_container">
+                    <img class="profile follow_profile" width="40px" height="40px" src="profile_pic5.jpg">
+                    <div class="follow_text">
+                        <p class="follow_name">Staku Virtigo</p>
+                        <p class="follow_description">Followed by marcus + 5 more</p>
+                    </div>
+                    <button class="btn_follow" id="followButton4" onclick="followBtn(this)">
+                        <svg id="followIcon4" class="follow_icon" xmlns="http://www.w3.org/2000/svg" height="30px" viewBox="0 -960 960 960" width="30px" fill="#000000">
+                            <path d="M517.5-419.5h22v-124h124v-22h-124v-124h-22v124h-124v22h124v124ZM308-280q-22.24 0-38.12-15.88Q254-311.76 254-334v-440q0-22.24 15.88-38.12Q285.76-828 308-828h440q22.24 0 38.12 15.88Q802-796.24 802-774v440q0 22.24-15.88 38.12Q770.24-280 748-280H308Zm0-22h440q12 0 22-10t10-22v-440q0-12-10-22t-22-10H308q-12 0-22 10t-10 22v440q0 12 10 22t22 10Zm-96 118q-22.24 0-38.12-15.88Q158-215.76 158-238v-462h22v462q0 12 10 22t22 10h462v22H212Zm64-622v504-504Z"/>
+                        </svg>
+                    </button>
+                </div>
+
+                <div class="follow_container">
+                    <img class="profile follow_profile" width="40px" height="40px" src="profile_pic6.jpg">
+                    <div class="follow_text">
+                        <p class="follow_name">Staku Virtigo</p>
+                        <p class="follow_description">Followed by marcus + 5 more</p>
+                    </div>
+                    <button class="btn_follow" id="followButton5" onclick="followBtn(this)">
+                        <svg id="followIcon5" class="follow_icon" xmlns="http://www.w3.org/2000/svg" height="30px" viewBox="0 -960 960 960" width="30px" fill="#000000">
+                            <path d="M517.5-419.5h22v-124h124v-22h-124v-124h-22v124h-124v22h124v124ZM308-280q-22.24 0-38.12-15.88Q254-311.76 254-334v-440q0-22.24 15.88-38.12Q285.76-828 308-828h440q22.24 0 38.12 15.88Q802-796.24 802-774v440q0 22.24-15.88 38.12Q770.24-280 748-280H308Zm0-22h440q12 0 22-10t10-22v-440q0-12-10-22t-22-10H308q-12 0-22 10t-10 22v440q0 12 10 22t22 10Zm-96 118q-22.24 0-38.12-15.88Q158-215.76 158-238v-462h22v462q0 12 10 22t22 10h462v22H212Zm64-622v504-504Z"/>
+                        </svg>
+                    </button>
                 </div>
 
             </div>
         </div>
 
-    </main>
-
+    <!-- framework -->
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    
+    <!-- js -->
+    <script src="home.js"></script>
     
 </body>
 </html>
