@@ -183,8 +183,8 @@
                         <h3 class="user_name">Cee Lee</h3>
                         <p class="post_time">1h</p>
                     </div>
-                        <ion-icon class="toggle_btn" name="ellipsis-horizontal-outline"></ion-icon>
-                    </div>
+                    <ion-icon class="toggle_btn" name="ellipsis-horizontal-outline"></ion-icon>
+                </div>
                     <div class="post_description">
                         <p class="text_description">Overwhelming view!&nbsp;</p>
                         <p class="text_hashtag">#river #adventure</p>
