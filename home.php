@@ -37,15 +37,79 @@
         
 
         <div class="right_icon">
-            <div class="notif_icon">
+            <button class="notif_icon" onclick="toggleNotifications()">
                 <span class="material-symbols-outlined">
                 notifications
                 </span>
-            </div>
+            </button>
             <img class="profile" width="40px" height="40px" src="profile_pic1.jpg">
         </div>
         
     </header>
+
+    <!-- notification dropdown -->
+
+    <div id="notifDropdown" class="notif_dropdown">
+        <div class="notif_text">
+            <p class="notif_title">Notifications</p>
+        </div>
+        <div class="notif_white_bg">
+            <div class="follow_request">
+                <img width="40px" height="40px" src="follow_request_img.png">
+                <div class="request_text_group">
+                    <p class="request_text_follow">Follow request</p>
+                    <p class="request_text_plus">itshiro20 + 3 others</p>
+                </div>
+            </div>
+            <br>
+            <hr class="notif_line">
+            <br>
+            <div class="earlier">
+                <p class="earlier_text">Earlier</p>
+                <div class="earlier_wrapper">
+                    <img class="notif_user_img" width="40px" height="40px" src="profile_pic3.jpg">
+                    <div class="notif_group_text">
+                        <p class="user_text">jws.pjs&nbsp;</p>
+                        <p class="notif_info">liked your post. 1m</p>
+                    </div>
+                    <img class="notif_post_img" width="40px" height="40px" src="post_sample.jpg">
+                </div>
+
+                <div class="earlier_wrapper">
+                    <img class="notif_user_img" width="40px" height="40px" src="profile_pic3.jpg">
+                    <div class="notif_group_text">
+                        <p class="user_text">jws.pjs&nbsp;</p>
+                        <p class="notif_info">liked your post. 1m</p>
+                    </div>
+                    <img class="notif_post_img" width="40px" height="40px" src="post_sample2.jpg">
+                </div>
+            </div>
+
+            <br>
+            <hr class="notif_line">
+            <br>
+            <div class="earlier">
+                <p class="earlier_text">New</p>
+                <div class="earlier_wrapper">
+                    <img class="notif_user_img" width="40px" height="40px" src="profile_pic6.jpg">
+                    <div class="notif_group_text">
+                        <p class="user_text">jws.pjs&nbsp;</p>
+                        <p class="notif_info">liked your post. 1m</p>
+                    </div>
+                    <img class="notif_post_img" width="40px" height="40px" src="post_sample.jpg">
+                </div>
+
+                <div class="earlier_wrapper">
+                    <img class="notif_user_img" width="40px" height="40px" src="profile_pic7.jpg">
+                    <div class="notif_group_text">
+                        <p class="user_text">jws.pjs&nbsp;</p>
+                        <p class="notif_info">liked your post. 1m</p>
+                    </div>
+                    <img class="notif_post_img" width="40px" height="40px" src="post_sample2.jpg">
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- menu -->
     <div class="menu">
@@ -80,6 +144,7 @@
                     <img class="profile" width="40px" height="40px" src="profile_pic1.jpg">
                     <p class="profile_name">Name</p>
                 </div>
+
 
             </div>
     </div>

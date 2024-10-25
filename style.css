@@ -148,7 +148,7 @@ main {
 
 .login_btn {
 
-    margin-bottom: 40px;
+    margin-bottom: 35px;
 }
 
 .btn {
@@ -161,16 +161,18 @@ main {
     border: none;
     border-radius: 50px;
     background: linear-gradient(90deg, #598BF1 0%, rgba(148, 134, 241, 0.8) 100%);
-    box-shadow: 0px 4px 4px 1px rgba(0, 0, 0, 0.25);
+    box-shadow: 0px 4px 6px 1px rgba(0, 0, 0, 0.25);
 }
 
 .btn:hover {
 
+    box-shadow: 0px 4px 11px 3px rgba(0, 0, 0, 0.25);
     transform: translateY(-3px);
 }
 
 .text_hover {
 
+    font-size: 1rem;
     color: #2bc6f5;
 }
 
@@ -235,63 +237,48 @@ main {
 
 .or {
 
-    margin-top: 2%;
+    margin-top: 4%;
     font-size: 0.8rem;
+    margin-bottom: 2%;
 }
 
 /* google btn */
 
 .google_btn {
-    margin-top: 5%;
-    max-width: 320px;
+    width: 3rem; /* Adjust width to fit the icon only */
+    height: 3rem; /* Make the button square */
+    padding: 0;
+    background-color: #ffffff; /* Change background to white */
+    border-radius: 10px; /* Make it circular */
     display: flex;
-    overflow: hidden;
-    position: relative;
-    padding: 0.875rem 72px 0.875rem 1.75rem;
-    background-color: #4285f4;
-    color: #ffffff;
-    font-size: 0.9rem;
-    line-height: 1.25rem;
-    font-weight: 700;
-    text-align: center;
-    text-transform: uppercase;
-    vertical-align: middle;
+    justify-content: center;
     align-items: center;
-    border-radius: 0.5rem;
-    gap: 0.75rem;
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
-      0 2px 4px -1px rgba(0, 0, 0, 0.06);
     border: none;
-    transition: all 0.6s ease;
-    filter: brightness(1.2);
-    font-family: sans-serif;
-  }
-  
-  .google_btn .google-icon {
-    background-color: #fff;
-    display: grid;
-    position: absolute;
-    right: 0;
-    place-items: center;
-    width: 3rem;
-    height: 100%;
-    border-radius: 0.5rem 0 0 0.5rem;
-    filter: brightness(1.2);
-  }
-  
-  .google_btn span svg {
-    width: 1.5rem;
-    height: 1.5rem;
-    filter: drop-shadow(0 0 5px rgba(66, 133, 244, 0.8));
-  }
-  
-  .google_btn:hover {
+    box-shadow: 0 4px 6px 1px rgba(0, 0, 0, 0.1),
+        0 2px 4px 1px rgba(0, 0, 0, 0.06);
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.google-icon {
+    width: 2rem;
+    height: 2rem;
+    filter: brightness(1.2); /* Add brightness filter for the icon */
+}
+
+/* Adjust the icon size */
+.google_btn svg {
+    width: 2rem;
+    height: 2rem;
+}
+
+/* Hover effect */
+.google_btn:hover {
     box-shadow: 0 4px 30px rgba(66, 133, 244, 0.1),
-      0 2px 30px rgba(52, 168, 83, 0.06);
-    filter: brightness(1);
-  }
-  
-  .google_btn:hover .google-icon {
-    filter: brightness(1);
-  }
+        0 2px 30px rgba(52, 168, 83, 0.06);
+}
+
+.google_btn:hover .google-icon {
+    filter: brightness(1); /* Change filter on hover */
+}
   

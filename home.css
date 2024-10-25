@@ -128,6 +128,7 @@ html, body {
     width: 40px;
     border-radius: 50%;
     border: 1px solid #000;
+    background: none;
 }
 
 .notif_icon:hover {
@@ -151,6 +152,166 @@ html, body {
 
     border-radius: 50%;
     box-shadow:  5px 5px 10px #a8a8a8;
+}
+
+/* notification dropdown */
+
+.notif_dropdown {
+    display: none; /* Initially hidden */
+    position: absolute;
+    top: 12%; /* Adjust this based on your button size */
+    right: 5%;
+    background: none;
+    width: 300px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 300;
+    overflow: hidden;
+}
+
+/* Dropdown title */
+.notif_title {
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+/* Notification list styles */
+.notif_list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.notif_item {
+    padding: 10px;
+    border-bottom: 1px solid #eaeaea;
+    cursor: pointer;
+}
+
+.notif_item:hover {
+    background-color: #f7f7f7;
+}
+
+.notif_text {
+
+    position: relative;
+    display: flex;
+    top: 0;
+    width: 100%;
+    padding: 15px;
+    align-items: center;
+
+    background: linear-gradient(147.8deg, #595bf172 -33.49%, rgba(148, 134, 241, 0.2) 63.89%);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur( 10px );
+}
+
+/* Show dropdown when button is clicked */
+.notif_dropdown.show {
+    display: block;
+}
+
+.follow_request {
+
+    width: 100%;
+    margin-left: 3%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.follow_request:hover {
+
+    color: #9f1bf7;
+}
+
+.request_text_group {
+
+    margin-left: 3%;
+    display: flex;
+    flex-direction: column;
+}
+
+.request_text_follow {
+
+    font-size: 1rem;
+}
+
+.request_text_plus {
+
+    font-size: 0.7rem;
+}
+
+.notif_white_bg {
+
+    width: 100%;
+    padding-top: 2%;
+    padding: 5%;
+    background-color: #fff;
+}
+
+/* earlier */
+
+.earlier {
+
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.earlier_wrapper {
+
+    width: 100%;
+    margin-bottom: 7%;
+    display: flex;
+}
+
+.earlier_wrapper:hover {
+
+    color: #9f1bf7;
+}
+
+.earlier_text {
+
+    margin-bottom: 8%;
+    font-family: 'sf_bold';
+    font-size: 1rem;
+}
+
+.notif_line {
+
+    border: none;
+    border-top: 1px solid #000;
+}
+
+.notif_user_img {
+
+    margin-right: 4%;
+    border-radius: 50px;
+}
+
+.notif_group_text {
+
+    display: flex;
+    align-items: center;
+}
+
+.user_text {
+    
+    font-family: 'sf_bold';
+    font-size: 0.8rem;
+}
+
+.notif_info {
+
+    font-size: 0.8rem;
+}
+
+.notif_post_img {
+
+    position: absolute;
+    right: 4%;
+    border-radius: 5px;
 }
 
 /* main */
