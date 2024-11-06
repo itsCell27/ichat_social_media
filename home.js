@@ -2,7 +2,7 @@
 // for multiple heart onclick
 
 document.addEventListener("DOMContentLoaded", function() {
-    document.querySelectorAll(".post_icon_btn").forEach(function(button) {
+    document.querySelectorAll(".post_icon_btn_heart").forEach(function(button) {
         button.addEventListener("click", function() {
             var heartIcon = this.querySelector("ion-icon");
 
@@ -45,8 +45,28 @@ function followBtn(button) {
 }
 
 
-// Toggle the notification dropdown visibility
+function toggleProfile() {
+    var profileDropdown = document.getElementById("profileDropdown");
+    var notifDropdown = document.getElementById("notifDropdown");
+
+    // Toggle the profile dropdown visibility
+    profileDropdown.classList.toggle("show");
+
+    // Close the notification dropdown if it's open
+    if (notifDropdown.classList.contains("show")) {
+        notifDropdown.classList.remove("show");
+    }
+}
+
 function toggleNotifications() {
-    var dropdown = document.getElementById("notifDropdown");
-    dropdown.classList.toggle("show");
+    var profileDropdown = document.getElementById("profileDropdown");
+    var notifDropdown = document.getElementById("notifDropdown");
+
+    // Toggle the notification dropdown visibility
+    notifDropdown.classList.toggle("show");
+
+    // Close the profile dropdown if it's open
+    if (profileDropdown.classList.contains("show")) {
+        profileDropdown.classList.remove("show");
+    }
 }

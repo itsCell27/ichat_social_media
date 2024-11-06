@@ -42,13 +42,14 @@
                 notifications
                 </span>
             </button>
-            <img class="profile" width="40px" height="40px" src="profile_pic1.jpg">
+            <button class="profile_btn" onclick="toggleProfile()">
+                <img class="profile" width="40px" height="40px" src="profile_pic1.jpg">
+            </button>
         </div>
         
     </header>
 
     <!-- notification dropdown -->
-
     <div id="notifDropdown" class="notif_dropdown">
         <div class="notif_text">
             <p class="notif_title">Notifications</p>
@@ -107,7 +108,62 @@
                     </div>
                     <img class="notif_post_img" width="40px" height="40px" src="post_sample2.jpg">
                 </div>
+
+                <div class="earlier_wrapper">
+                    <img class="notif_user_img" width="40px" height="40px" src="profile_pic5.jpg">
+                    <div class="notif_group_text">
+                        <p class="user_text">jws.pjs&nbsp;</p>
+                        <p class="notif_info">liked your post. 1m</p>
+                    </div>
+                    <img class="notif_post_img" width="40px" height="40px" src="post_sample2.jpg">
+                </div>
             </div>
+        </div>
+    </div>
+
+    <!-- profile dropdown -->
+    <div class="profile_dropdown" id="profileDropdown">
+        <div class="profile_title">
+            <p class="profile_text">Profile</p>
+        </div>
+        <br>
+        <hr class="notif_line">
+        <br>
+        <div class="user_profile_wrapper">
+            <img class="user_profile_img" width="40px" height="40px" src="profile_pic1.jpg">
+            <p class="user_text_name">Name</p>
+        </div>
+        <br>
+        <hr class="notif_line">
+        <br>
+        <div class="profile_menu">
+            <div class="profile_menu_btn">
+                <button class="profile_settings" >
+                    <ion-icon name="settings-outline"></ion-icon>
+                </button>
+                <p class="profile_menu_text">Settings & Privacy</p>
+            </div>
+            <div class="profile_menu_btn">
+                <button class="profile_logout">
+                    <ion-icon name="log-out-outline"></ion-icon>
+                </button>
+                <p class="profile_menu_text">Logout</p>
+            </div>
+        </div>
+        <br>
+        <hr class="notif_line">
+        <br>
+        <div class="terms_wrap">
+            <div class="terms_link">
+                <a class="terms_bold link" href="#">About us</a>
+                <p class="terms_bold">&nbsp;·&nbsp;</p>
+                <a class="terms_bold link" href="#">Terms of use</a>
+                <p class="terms_bold">&nbsp;·&nbsp;</p>
+                <a class="terms_bold link" href="#">Privacy policy</a>
+                <p class="terms_bold">&nbsp;·&nbsp;</p>
+                <a class="terms_bold link" href="#">FAQ</a>
+            </div>
+            <p class="terms_text">© 2024 iChat. All Rights Reserved.</p>
         </div>
     </div>
 
@@ -217,7 +273,7 @@
                     <div class="post_icons">
 
                         <div class="post_icon_wrapper">
-                            <button class="post_icon_btn" onclick="heartBtn()">
+                            <button class="post_icon_btn_heart" onclick="heartBtn()">
                                 <ion-icon name="heart-outline"></ion-icon>
                             </button>
                             <p class="post_icon_text">0</p>
@@ -260,7 +316,7 @@
                     <div class="post_icons">
 
                         <div class="post_icon_wrapper">
-                            <button class="post_icon_btn" onclick="heartBtn()">
+                            <button class="post_icon_btn_heart" onclick="heartBtn()">
                                 <ion-icon name="heart-outline"></ion-icon>
                             </button>
                             <p class="post_icon_text">0</p>
