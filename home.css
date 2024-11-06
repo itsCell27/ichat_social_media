@@ -216,7 +216,7 @@ html, body {
     display: flex;
     width: 100%;
     align-items: center;
-    padding: 2%;
+    padding: 3%;
 }
 
 .user_profile_wrapper:hover {
@@ -250,7 +250,7 @@ html, body {
     display: flex;
     align-items: center;
     width: 100%;
-    padding: 2%;
+    padding: 3%;
 }
 
 .profile_menu_btn:hover {
