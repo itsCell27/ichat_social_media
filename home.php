@@ -201,7 +201,19 @@
                     <p class="profile_name">Name</p>
                 </div>
 
+            </div>
 
+            <div class="terms_wrap menu_terms">
+                 <div class="terms_link">
+                    <a class="terms_bold link" href="#">About us</a>
+                    <p class="terms_bold">&nbsp;·&nbsp;</p>
+                    <a class="terms_bold link" href="#">Terms of use</a>
+                    <p class="terms_bold">&nbsp;·&nbsp;</p>
+                    <a class="terms_bold link" href="#">Privacy policy</a>
+                    <p class="terms_bold">&nbsp;·&nbsp;</p>
+                    <a class="terms_bold link" href="#">FAQ</a>
+                </div>
+                <p class="terms_text">© 2024 iChat. All Rights Reserved.</p>
             </div>
     </div>
 
@@ -255,88 +267,144 @@
 
             <!-- user's post -->
             <div class="post">
+
                 <div class="upper_post_tag">
                     <img class="user_profile" width="50px" height="50px" src="profile_pic3.jpg">
                     <div class="post_text">
-                        <h3 class="user_name">Charles James</h3>
-                        <p class="post_time">25 min ago</p>
+                        <h3 class="user_name">James Charles</h3>
+                        <p class="post_time">5m</p>
                     </div>
-                        <ion-icon class="toggle_btn" name="ellipsis-horizontal-outline"></ion-icon>
+                    <div class="toggle_btn" onclick="toggleOption(this)">
+                        <ion-icon id="toggle_option" name="ellipsis-horizontal-outline"></ion-icon>
                     </div>
-                    <div class="post_description">
-                        <p class="text_description">Overwhelming view!&nbsp;</p>
-                        <p class="text_hashtag">#mountainlife #adventure</p>
-                    </div>
-                    <div class="post_img_wrapper">
-                        <img class="post_img" src="post_sample.jpg">
-                    </div>
-                    <div class="post_icons">
+                </div>
 
-                        <div class="post_icon_wrapper">
-                            <button class="post_icon_btn_heart" onclick="heartBtn()">
-                                <ion-icon name="heart-outline"></ion-icon>
-                            </button>
-                            <p class="post_icon_text">0</p>
-                        </div>
+                <div class="post_description">
+                    <p class="text_description">Overwhelming view!&nbsp;</p>
+                    <p class="text_hashtag">#adventure</p>
+                </div>
+
+                <div class="post_img_wrapper">
+                    <img class="post_img" src="post_sample.jpg">
+                </div>
+
+                <div class="post_icons">
+                    <div class="post_icon_wrapper">
+                        <button class="post_icon_btn_heart" onclick="heartBtn()">
+                            <ion-icon name="heart-outline"></ion-icon>
+                        </button>
+                         <p class="post_icon_text">0</p>
+                    </div>
                     
-                        <div class="post_icon_wrapper">
-                            <button class="post_icon_btn" id="comment">
-                                <ion-icon name="chatbubble-outline"></ion-icon>
-                            </button>
-                            <p class="post_icon_text">0</p>
-                        </div>
+                    <div class="post_icon_wrapper">
+                        <button class="post_icon_btn" id="comment">
+                            <ion-icon name="chatbubble-outline"></ion-icon>
+                        </button>
+                        <p class="post_icon_text">0</p>
+                    </div>
 
-                        <div class="post_icon_wrapper">
-                            <button class="post_icon_btn" id="share">
-                                <ion-icon name="arrow-redo-outline"></ion-icon>
-                            </button>
-                            <p class="post_icon_text">share</p>
-                        </div>
+                    <div class="post_icon_wrapper">
+                        <button class="post_icon_btn" id="share">
+                            <ion-icon name="arrow-redo-outline"></ion-icon>
+                        </button>
+                        <p class="post_icon_text">share</p>
+                    </div>
+
+                </div>
+
+                <!-- option box -->
+                <div class="option_box">
+                    <div class="option_box_wrapper">
+
+                        <button class="option_box_btn" id="save_post">
+                            Save post
+                        </button>
+                       
+                        <hr class="notif_line">
+                      
+                        <button class="option_box_btn" id="unfollow">
+                            Unfollow
+                        </button>
+                   
+                        <hr class="notif_line">
+                
+                        <button class="option_box_btn" id="block">
+                            Block
+                        </button>
 
                     </div>
+                </div>
             </div>
 
             <!-- user's post -->
             <div class="post">
+
                 <div class="upper_post_tag">
                     <img class="user_profile" width="50px" height="50px" src="profile_pic5.jpg">
                     <div class="post_text">
                         <h3 class="user_name">Cee Lee</h3>
                         <p class="post_time">1h</p>
                     </div>
-                    <ion-icon class="toggle_btn" name="ellipsis-horizontal-outline"></ion-icon>
+                    <div class="toggle_btn" onclick="toggleOption(this)">
+                        <ion-icon id="toggle_option" name="ellipsis-horizontal-outline"></ion-icon>
+                    </div>
                 </div>
-                    <div class="post_description">
-                        <p class="text_description">Overwhelming view!&nbsp;</p>
-                        <p class="text_hashtag">#river #adventure</p>
-                    </div>
-                    <div class="post_img_wrapper">
-                        <img class="post_img" src="post_sample2.jpg">
-                    </div>
-                    <div class="post_icons">
 
-                        <div class="post_icon_wrapper">
-                            <button class="post_icon_btn_heart" onclick="heartBtn()">
-                                <ion-icon name="heart-outline"></ion-icon>
-                            </button>
-                            <p class="post_icon_text">0</p>
-                        </div>
+                <div class="post_description">
+                    <p class="text_description">Overwhelming view!&nbsp;</p>
+                    <p class="text_hashtag">#river #adventure</p>
+                </div>
+
+                <div class="post_img_wrapper">
+                    <img class="post_img" src="post_sample2.jpg">
+                </div>
+
+                <div class="post_icons">
+                    <div class="post_icon_wrapper">
+                        <button class="post_icon_btn_heart" onclick="heartBtn()">
+                            <ion-icon name="heart-outline"></ion-icon>
+                        </button>
+                         <p class="post_icon_text">0</p>
+                    </div>
                     
-                        <div class="post_icon_wrapper">
-                            <button class="post_icon_btn" id="comment">
-                                <ion-icon name="chatbubble-outline"></ion-icon>
-                            </button>
-                            <p class="post_icon_text">0</p>
-                        </div>
+                    <div class="post_icon_wrapper">
+                        <button class="post_icon_btn" id="comment">
+                            <ion-icon name="chatbubble-outline"></ion-icon>
+                        </button>
+                        <p class="post_icon_text">0</p>
+                    </div>
 
-                        <div class="post_icon_wrapper">
-                            <button class="post_icon_btn" id="share">
-                                <ion-icon name="arrow-redo-outline"></ion-icon>
-                            </button>
-                            <p class="post_icon_text">share</p>
-                        </div>
+                    <div class="post_icon_wrapper">
+                        <button class="post_icon_btn" id="share">
+                            <ion-icon name="arrow-redo-outline"></ion-icon>
+                        </button>
+                        <p class="post_icon_text">share</p>
+                    </div>
+
+                </div>
+
+                <!-- option box -->
+                <div class="option_box">
+                    <div class="option_box_wrapper">
+
+                        <button class="option_box_btn" id="save_post">
+                            Save post
+                        </button>
+                       
+                        <hr class="notif_line">
+                      
+                        <button class="option_box_btn" id="unfollow">
+                            Unfollow
+                        </button>
+                   
+                        <hr class="notif_line">
+                
+                        <button class="option_box_btn" id="block">
+                            Block
+                        </button>
 
                     </div>
+                </div>
             </div>
 
         </section>

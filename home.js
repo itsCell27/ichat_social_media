@@ -1,6 +1,5 @@
 
 // for multiple heart onclick
-
 document.addEventListener("DOMContentLoaded", function() {
     document.querySelectorAll(".post_icon_btn_heart").forEach(function(button) {
         button.addEventListener("click", function() {
@@ -20,7 +19,6 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
 // for multiple follow onclick
-
 function followBtn(button) {
     // Find the SVG inside the clicked button
     const followIcon = button.querySelector('svg');
@@ -45,6 +43,7 @@ function followBtn(button) {
 }
 
 
+// profile dropdown button
 function toggleProfile() {
     var profileDropdown = document.getElementById("profileDropdown");
     var notifDropdown = document.getElementById("notifDropdown");
@@ -56,8 +55,14 @@ function toggleProfile() {
     if (notifDropdown.classList.contains("show")) {
         notifDropdown.classList.remove("show");
     }
+
+    // Close all open option boxes
+    document.querySelectorAll(".option_box").forEach(optionBox => {
+        optionBox.classList.remove("show");
+    });
 }
 
+// notification dropdown button
 function toggleNotifications() {
     var profileDropdown = document.getElementById("profileDropdown");
     var notifDropdown = document.getElementById("notifDropdown");
@@ -69,4 +74,35 @@ function toggleNotifications() {
     if (profileDropdown.classList.contains("show")) {
         profileDropdown.classList.remove("show");
     }
+
+    // Close all open option boxes
+    document.querySelectorAll(".option_box").forEach(optionBox => {
+        optionBox.classList.remove("show");
+    });
+}
+
+// post option button
+function toggleOption(toggleButton) {
+    // Find the option box within the same post
+    var optionBox = toggleButton.closest('.post').querySelector('.option_box');
+    var profileDropdown = document.getElementById("profileDropdown");
+    var notifDropdown = document.getElementById("notifDropdown");
+
+    // Toggle the specific option box visibility
+    optionBox.classList.toggle("show");
+
+    // Close other dropdowns if they're open
+    if (profileDropdown.classList.contains("show")) {
+        profileDropdown.classList.remove("show");
+    }
+    if (notifDropdown.classList.contains("show")) {
+        notifDropdown.classList.remove("show");
+    }
+
+    // Close all other option boxes
+    document.querySelectorAll(".option_box").forEach(box => {
+        if (box !== optionBox) {
+            box.classList.remove("show");
+        }
+    });
 }
