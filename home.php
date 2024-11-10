@@ -4,6 +4,10 @@
 
         $email = $_POST['email'];
     }
+
+
+    $user_tage_name = "";
+
 ?>
 
 <!DOCTYPE html>
@@ -18,6 +22,7 @@
     <link rel="stylesheet" href="home.css">
 </head>
 <body>
+
     <header class="navbar">
 
         <div class="left_icon">
@@ -176,12 +181,12 @@
                     <p class="icon_name">Home</p>
                 </div>
 
-                <div class="icon_wrapper">
+                <div class="icon_wrapper" onclick="window.location.href='message.php'">
                     <svg class="icons" xmlns="http://www.w3.org/2000/svg" height="50px" viewBox="0 -960 960 960" width="50px" fill="#000000"><path d="M243.58-292 178-226q-13 13-29.5 6.42T132-245.5v-528.67q0-22.07 15.88-37.95Q163.76-828 185.78-828h588.44q22.02 0 37.9 15.88Q828-796.24 828-774.2v428.4q0 22.04-15.88 37.92Q796.24-292 774.21-292H243.58Zm-9.08-22H774q12 0 22-10t10-22v-428q0-12-10-22t-22-10H186q-12 0-22 10t-10 22v542l80.5-82Zm-80.5 0v-492 492Zm123.5-112h244q4.07 0 7.29-3.19 3.21-3.2 3.21-8 0-4.81-3.21-7.81-3.22-3-7.29-3h-244q-5.23 0-8.36 3.27-3.14 3.27-3.14 7.42 0 5.31 3.14 8.31 3.13 3 8.36 3Zm0-123h406q4.07 0 7.29-3.19 3.21-3.2 3.21-8 0-4.81-3.21-7.81-3.22-3-7.29-3h-406q-5.23 0-8.36 3.27-3.14 3.27-3.14 7.42 0 5.31 3.14 8.31 3.13 3 8.36 3Zm0-123h406q4.07 0 7.29-3.19 3.21-3.2 3.21-8 0-4.81-3.21-7.81-3.22-3-7.29-3h-406q-5.23 0-8.36 3.27-3.14 3.27-3.14 7.42 0 5.31 3.14 8.31 3.13 3 8.36 3Z"/></svg>
                     <p class="icon_name">Messages</p>
                 </div>
 
-                <div class="icon_wrapper">
+                <div class="icon_wrapper" onclick="toggleCreate()">
                     <svg class="icons" xmlns="http://www.w3.org/2000/svg" height="50px" viewBox="0 -960 960 960" width="50px" fill="#000000"><path d="M470-468v150.5q0 5.18 3.23 8.34t8 3.16q4.77 0 7.77-3.16t3-8.34V-468h151.5q4.02 0 7.26-3.23t3.24-8q0-4.77-3.24-7.77t-7.26-3H492v-153.5q0-4.02-3.3-7.26-3.31-3.24-7.43-3.24-5.27 0-8.27 3.24t-3 7.26V-490H317.5q-5.18 0-8.34 3.3-3.16 3.31-3.16 7.43 0 5.27 3.16 8.27t8.34 3H470Zm10.57 336q-72.94 0-136.15-27.52-63.2-27.53-110.38-74.85-47.19-47.33-74.61-110.1Q132-407.25 132-479.7q0-72.53 27.52-136.09 27.53-63.56 74.85-110.71 47.33-47.15 110.1-74.32Q407.25-828 479.7-828q72.53 0 136.09 27.39 63.57 27.39 110.72 74.35 47.14 46.96 74.31 110.39Q828-552.43 828-480.57q0 72.94-27.27 136.15-27.28 63.2-74.35 110.2-47.08 47-110.51 74.61Q552.43-132 480.57-132Zm-.64-22q135.57 0 230.82-95.18Q806-344.37 806-479.93q0-135.57-94.93-230.82t-231-95.25q-135.57 0-230.82 94.93t-95.25 231q0 135.57 95.18 230.82Q344.37-154 479.93-154Zm.07-326Z"/></svg>
                     <p class="icon_name">Create</p>
                 </div>
@@ -215,6 +220,136 @@
                 </div>
                 <p class="terms_text">© 2024 iChat. All Rights Reserved.</p>
             </div>
+    </div>
+
+    <!-- create overlay -->
+    <div class="create_overlay" id="createOverlay">
+
+        <!-- create box -->
+        <div class="create_box">
+
+                <!-- create box main -->
+                <div class="create_box_wrap" id="createBox">
+
+                    <div class="create_title">
+                        <p class="create_text">Create</p>
+                        <button class="create_close" onclick="toggleCreate()">
+                            <ion-icon id="close_icon" name="close"></ion-icon>
+                        </button>
+                    </div>
+
+                    <div class="main_create">
+                        <button class="main_create_btn" id="create_post_btn" onclick="openCreatePost()">Upload post</button>
+                        <p id="create_option">---------- or ----------</p>
+                        <button class="main_create_btn" id="create_story_btn" onclick="toggleStory()">Upload story</button>
+                    </div>
+
+                </div>
+
+                <!-- create post -->
+                <div class="create_post_box" id="createPost">
+
+                    <div class="create_title_post">
+                        <p class="create_text">Create Post</p>
+                        <button class="create_close" onclick="closeCreateClose()">
+                            <ion-icon id="close_icon" name="close"></ion-icon>
+                        </button>
+                    </div>
+
+                    <div class="main_create_post">
+
+                        <div class="upper_create_post">
+                            <img id="create_post_user_img" src="profile_pic1.jpg">
+                            <div class="create_post_info">
+                                <p id="create_post_user">Name</p>
+                            </div>
+                        </div>
+
+                        <div class="create_post_contents">
+
+                            <input id="create_post_input_text" type="text" placeholder="What's on your mind?">
+
+                            <div id="post_preview_img_wrap">
+                                <img id="previewImg" alt="Image Preview">
+                            </div>
+
+                            <div class="create_post_option_btn">
+
+                                <label id="create_post_upload_img" for="uploadImage">
+                                    <ion-icon class="create_post_img_icon" name="images-outline"></ion-icon>photo
+                                </label>
+                                <!-- hidden input -->
+                                <input type="file" id="uploadImage" accept="image/*" onchange="previewImage(event)" />
+                                <button id="create_post_tag_btn" onclick="toggleTag()">
+                                    <ion-icon class="create_post_tag_icon" name="bookmark-outline"></ion-icon>tag
+                                </button>
+                            </div>
+
+                        </div>
+
+                        <button id="post_button">Post</button>
+
+
+                    </div>
+
+                </div>
+
+                <!-- tag selection -->
+                <div class="create_post_tag" id="tagPost">
+
+                    <div class="create_post_tag_title">
+                        <button class="create_close" id="tag_back_btn" onclick="toggleTag()">
+                            <ion-icon id="close_icon" name="close"></ion-icon>
+                        </button>
+                        <p>Tag people</p>
+                    </div>
+
+                    <div class="main_create_post_tag">
+
+                        <div class="tag_upper_icons">
+                            <div class="tag_search_users">
+                                <ion-icon id="tag_search_btn" name="search-outline"></ion-icon>
+                                <input id="tag_search_input" type="text" placeholder="Search">
+                            </div>
+                            <button id="tag_done_btn" onclick="toggleTag()">Done</button>
+                        </div>
+
+                        <label class="tag_a_user_wrap" for="checkbox_tag">
+                            <img width="50px" height="50px" id="tag_a_user_img" src="profile_pic8.jpg">
+                            <p>KSI</p>
+                            <input id="checkbox_tag" type="checkbox" class="tag_checkbox">
+                        </label>
+                    </div>
+
+                </div>
+
+                <!-- create story -->
+                <div class="create_story_box" id="createStory">
+
+                    <div class="create_story_title">
+                        <button class="create_close" id="create_story_close" onclick="toggleStory()">
+                            <ion-icon id="close_icon" name="close"></ion-icon>
+                        </button>
+                        <p>Create Story</p>
+                    </div>
+
+                    <div class="main_create_story">
+
+                        <div class="create_story_post_text">
+                            <button class="main_create_story_btns" id="story_text_button">Text</button>
+                        </div>
+
+                        <p class="main_story_text_or">--- or ---</p>
+
+                        <div class="create_story_post_photo">
+                            <button class="main_create_story_btns" id="story_photo_button">Photo</button>
+                        </div>
+
+                    </div>
+
+                </div>
+        </div>
+
     </div>
 
     <main class="main">
@@ -269,77 +404,6 @@
             <div class="post">
 
                 <div class="upper_post_tag">
-                    <img class="user_profile" width="50px" height="50px" src="profile_pic3.jpg">
-                    <div class="post_text">
-                        <h3 class="user_name">James Charles</h3>
-                        <p class="post_time">5m</p>
-                    </div>
-                    <div class="toggle_btn" onclick="toggleOption(this)">
-                        <ion-icon id="toggle_option" name="ellipsis-horizontal-outline"></ion-icon>
-                    </div>
-                </div>
-
-                <div class="post_description">
-                    <p class="text_description">Overwhelming view!&nbsp;</p>
-                    <p class="text_hashtag">#adventure</p>
-                </div>
-
-                <div class="post_img_wrapper">
-                    <img class="post_img" src="post_sample.jpg">
-                </div>
-
-                <div class="post_icons">
-                    <div class="post_icon_wrapper">
-                        <button class="post_icon_btn_heart" onclick="heartBtn()">
-                            <ion-icon name="heart-outline"></ion-icon>
-                        </button>
-                         <p class="post_icon_text">0</p>
-                    </div>
-                    
-                    <div class="post_icon_wrapper">
-                        <button class="post_icon_btn" id="comment">
-                            <ion-icon name="chatbubble-outline"></ion-icon>
-                        </button>
-                        <p class="post_icon_text">0</p>
-                    </div>
-
-                    <div class="post_icon_wrapper">
-                        <button class="post_icon_btn" id="share">
-                            <ion-icon name="arrow-redo-outline"></ion-icon>
-                        </button>
-                        <p class="post_icon_text">share</p>
-                    </div>
-
-                </div>
-
-                <!-- option box -->
-                <div class="option_box">
-                    <div class="option_box_wrapper">
-
-                        <button class="option_box_btn" id="save_post">
-                            Save post
-                        </button>
-                       
-                        <hr class="notif_line">
-                      
-                        <button class="option_box_btn" id="unfollow">
-                            Unfollow
-                        </button>
-                   
-                        <hr class="notif_line">
-                
-                        <button class="option_box_btn" id="block">
-                            Block
-                        </button>
-
-                    </div>
-                </div>
-            </div>
-
-            <!-- user's post -->
-            <div class="post">
-
-                <div class="upper_post_tag">
                     <img class="user_profile" width="50px" height="50px" src="profile_pic5.jpg">
                     <div class="post_text">
                         <h3 class="user_name">Cee Lee</h3>
@@ -364,11 +428,11 @@
                         <button class="post_icon_btn_heart" onclick="heartBtn()">
                             <ion-icon name="heart-outline"></ion-icon>
                         </button>
-                         <p class="post_icon_text">0</p>
+                         <button class="post_icon_text" onclick="openLike()">0</button>
                     </div>
                     
                     <div class="post_icon_wrapper">
-                        <button class="post_icon_btn" id="comment">
+                        <button class="post_icon_btn" id="comment" onclick="openComment()">
                             <ion-icon name="chatbubble-outline"></ion-icon>
                         </button>
                         <p class="post_icon_text">0</p>
@@ -405,13 +469,97 @@
 
                     </div>
                 </div>
+
+
             </div>
 
         </section>
 
-        
 
     </main>
+    
+
+    <!-- comment overlay -->
+    <div class="comment_overlay" id="commentBox">
+
+        <!-- comment box -->
+        <div class="comment_box">
+            <div class="comment_box_wrap">
+                        
+                <div class="comment_post_title">
+                    <p class="comment_text">Comments</p>
+                    <button class="comment_close" onclick="closeComment()">
+                        <ion-icon id="close_icon" name="close"></ion-icon>
+                    </button>
+                </div>
+                
+                <div class="main_comments">
+
+                    <div class="users_comments">
+
+                        <div class="comment_containner">
+                            <div class="upper_comment">
+                                <img id="user_comment_profile" width="40px" height="40px" src="profile_pic4.jpg">
+                                <div class="comment_info">
+                                    <p id="user_comment_name">Speed</p>
+                                    <p id="user_comment_text">YO! nc view</p>
+                                </div>
+                                <button id="comment_heart_btn" class="post_icon_btn_heart" onclick="heartBtn()">
+                                    <ion-icon name="heart-outline"></ion-icon>
+                                </button>
+                            </div>
+                            <div class="comment_small_icons">
+                                <p id="comment_timestamp">5m</p>
+                                <p id="comment_number_of_likes">0&nbsp;</p>
+                                <button class="comment_like_btn" id="comment_like_button">Like</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="comment_input">
+                        <div class="comment_input_wrap">
+                            <input id="enter_comment" type="text" placeholder="Enter comment">
+                            <button id="send_comment_btn">
+                                <ion-icon id="sendIcon" class="send_icon" name="send"></ion-icon>
+                            </button>
+                        </div> 
+                    </div>
+
+                </div>
+
+                
+            
+            </div>
+        </div>
+
+    </div>
+
+
+    <!-- like overlay -->
+    <div class="like_overlay" id="likeBox">
+
+        <!-- like box -->
+        <div class="like_box">
+            <div class="like_box_wrap">
+
+                <div class="like_post_title">
+                    <p class="like_text">Likes</p>
+                    <button class="like_close" onclick="closeLike()">
+                        <ion-icon id="close_icon" name="close"></ion-icon>
+                    </button>
+                </div>
+
+                <div class="main_like">
+                    <div class="users_like">
+                        <img class="user_like_img" width="50px" height="50px" src="profile_pic6.jpg">
+                        <p class="user_like_name">Lee</p>
+                        <button class="like_follow_btn" onclick="toggleFollow(this)">Follow</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
 
     <!-- follow -->
         <div class="follow">

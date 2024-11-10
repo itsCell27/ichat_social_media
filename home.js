@@ -106,3 +106,187 @@ function toggleOption(toggleButton) {
         }
     });
 }
+
+
+// Select all elements with the class 'like-button'
+const likeButtons = document.querySelectorAll(".comment_like_btn");
+
+// Loop through each button and add an event listener
+likeButtons.forEach(button => {
+    button.addEventListener("click", () => {
+        button.classList.toggle("liked");
+    });
+});
+
+
+// for opening comment box
+function openComment() {
+
+    var commentBox = document.getElementById("commentBox");
+
+    commentBox.classList.toggle("show_comment");
+}
+
+// for closing comment box
+function closeComment() {
+
+    var commentBox = document.getElementById("commentBox");
+
+    commentBox.classList.remove("show_comment");
+}
+
+
+// comment send button. The color change when user inputs text
+const inputField = document.getElementById('enter_comment');
+const submitButton = document.getElementById('sendIcon');
+const enableSend = document.getElementById('send_comment_btn');
+
+inputField.addEventListener('input', function() {
+            
+    if (inputField.value.trim() !== '') {
+
+        enableSend.classList.add('send_enabled');
+        submitButton.classList.add('color');     
+    } else {
+
+        enableSend.classList.remove('send_enabled');
+        submitButton.classList.remove('color');     
+    }
+});
+
+// for opening like box
+function openLike() {
+
+    var likeBox = document.getElementById("likeBox");
+
+    likeBox.classList.toggle("show_like");
+}
+
+// for closing like box
+function closeLike() {
+
+    var likeBox = document.getElementById("likeBox");
+
+    likeBox.classList.remove("show_like");
+}
+
+// follow button 
+function toggleFollow(button) {
+    if (button.innerText === "Follow") {
+
+        button.innerText = "Followed";       // Change text to "Followed"
+        button.style.background = "gray";  // Change background to gray
+    } else {
+
+        button.innerText = "Follow";         // Reset text to "Follow"
+        button.style.background = "linear-gradient(90deg, #595bf1 0%, rgba(148, 134, 241, 0.8) 100%)";
+    }
+}
+
+
+// create button
+function toggleCreate() {
+    var createOverlay = document.getElementById("createOverlay");
+    var createBox = document.getElementById("createBox");
+
+    // Toggle visibility of overlay and create box
+    if (createOverlay.classList.contains("show_create") && createBox.classList.contains("show_create_box")) {
+        // If both are visible, hide them
+        createOverlay.classList.remove("show_create");
+        createBox.classList.remove("show_create_box");
+    } else {
+        // If either is hidden, show both
+        createOverlay.classList.add("show_create");
+        createBox.classList.add("show_create_box");
+    }
+}
+
+// create post 
+function openCreatePost() {
+
+    var createBox = document.getElementById("createBox");
+    var createPost = document.getElementById("createPost");
+
+    if (createBox.classList.contains("show_create_box")) {
+
+        createBox.classList.remove("show_create_box");
+        createPost.classList.add("show");
+    } else {
+
+        createBox.classList.add("show_create_box");
+        createPost.classList.remove("show");
+    }
+}
+
+// create post close
+function closeCreateClose() {
+
+    var createOverlay = document.getElementById("createOverlay");
+    var createPost = document.getElementById("createPost");
+    
+    // Toggle visibility of overlay and create box
+    if (createOverlay.classList.contains("show_create") && createPost.classList.contains("show")) {
+        // If both are visible, hide them
+        createOverlay.classList.remove("show_create");
+        createPost.classList.remove("show");
+    } else {
+        // If either is hidden, show both
+        createOverlay.classList.add("show_create");
+        createPost.classList.add("show");
+    }
+}
+
+
+// to preview uploaded images
+function previewImage(event) {
+    const file = event.target.files[0];
+    const preview = document.getElementById("previewImg");
+
+    if (file) {
+        const reader = new FileReader();
+        
+        reader.onload = function(e) {
+            preview.src = e.target.result;
+            preview.style.display = "block"; // Show the image
+        };
+        
+        reader.readAsDataURL(file); // Convert the file to a data URL
+    } else {
+        preview.style.display = "none"; // Hide the image if no file is chosen
+    }
+}
+
+// show tag box
+function toggleTag() {
+
+    var tagPost = document.getElementById("tagPost");
+    var createPost = document.getElementById("createPost");
+
+    if (createPost.classList.contains("show")) {
+        
+        createPost.classList.remove("show");
+        tagPost.classList.add("show");
+    } else {
+        
+        tagPost.classList.remove("show");
+        createPost.classList.add("show");
+    }
+}
+
+// show story box
+function toggleStory() {
+
+    var createStory = document.getElementById("createStory");
+    var createBox = document.getElementById("createBox");
+
+    if (createBox.classList.contains("show_create_box")) {
+        
+        createBox.classList.remove("show_create_box");
+        createStory.classList.add("show");
+    } else {
+        
+        createStory.classList.remove("show");
+        createBox.classList.add("show_create_box");
+    }
+}
+
