@@ -41,15 +41,26 @@ function toggleNotifications() {
 function toggleOption() {
 
     var optionDropdown = document.getElementById("optionDropdown");
-    var chatBox = document.getElementById("chatBox");
 
-    if (optionDropdown.classList.contains("show") && chatBox.classList.contains("shrink")) {
+    if (optionDropdown.classList.contains("show")) {
 
         optionDropdown.classList.remove("show");
-        chatBox.classList.remove("shrink");
     } else {
 
         optionDropdown.classList.add("show");
-        chatBox.classList.add("shrink");
+    }
+}
+
+// delete conversation popup
+function deleteToggle() {
+
+    var deleteConversation = document.getElementById("deleteConversation");
+
+    if (deleteConversation.classList.contains("show")) {
+
+        deleteConversation.classList.remove("show");
+    } else {
+
+        deleteConversation.classList.add("show");
     }
 }

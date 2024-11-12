@@ -233,119 +233,140 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['message'])) {
 
         </div>
 
+
         <!-- chat box -->
-        <div class="chat_box" id="chatBox">
+        <div class="chat_box_containner">
 
-            <div class="chat_box_navbar">
-                <div class="chat_box_img_status">
-                    <img id="user_img_status" width="40px" height="40px" src="profile_pic5.jpg">
-                    <ion-icon id="user_status_icon" name="ellipse"></ion-icon>
+            <!-- main chat box -->
+            <div class="chat_box" id="chatBox">
+
+                <div class="chat_box_navbar">
+                    <div class="chat_box_img_status">
+                        <img id="user_img_status" width="40px" height="40px" src="profile_pic5.jpg">
+                        <ion-icon id="user_status_icon" name="ellipse"></ion-icon>
+                    </div>
+                    
+                    <div class="chat_box_text_group">
+                        <p class="chat_box_user_name">Cee Lee</p>
+                        <p class="chat_box_status_text">Active now</p>
+                    </div>
+                    
+                    <ion-icon class="chat_box_nav_option" name="ellipsis-horizontal-outline" onclick="toggleOption()"></ion-icon>
                 </div>
-                
-                <div class="chat_box_text_group">
-                    <p class="chat_box_user_name">Cee Lee</p>
-                    <p class="chat_box_status_text">Active now</p>
-                </div>
-                
-                <ion-icon class="chat_box_nav_option" name="ellipsis-horizontal-outline" onclick="toggleOption()"></ion-icon>
-            </div>
 
-            <div class="chat_box_conversation">
+                <div class="chat_box_conversation">
 
-                
+                    
 
-                    <!-- your message -->
-                    <?php if (!empty($_SESSION['messages'])): ?>
-                        <?php for ($i = count($_SESSION['messages']) - 1; $i >= 0; $i--): ?>
-                            <div class="your_message_wrap">      
-                                <p class="your_message"><?php echo htmlspecialchars($_SESSION['messages'][$i]['message']); ?></p>  
-                            </div>
-                        <?php endfor; ?>
-                    <?php else: ?>
-                        <p>...</p>
-                    <?php endif; ?>
+                        <!-- your message -->
+                        <?php if (!empty($_SESSION['messages'])): ?>
+                            <?php for ($i = count($_SESSION['messages']) - 1; $i >= 0; $i--): ?>
+                                <div class="your_message_wrap">      
+                                    <p class="your_message"><?php echo htmlspecialchars($_SESSION['messages'][$i]['message']); ?></p>  
+                                </div>
+                            <?php endfor; ?>
+                        <?php else: ?>
+                            
+                        <?php endif; ?>
 
-                    <!-- partner message -->
-                    <div class="partner_chat_group">
-                        <img id="partner_chat_img" width="40px" height="40px" src="profile_pic5.jpg">
-                        <p id="partner_message">Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis quasi sint alias eligendi at obcaecati odio harum, numquam voluptates ullam, perferendis sunt quae asperiores nesciunt nam aliquam facilis consequuntur reiciendis.</p>
+                        <!-- partner message -->
+                        <div class="partner_chat_group">
+                            <img id="partner_chat_img" width="40px" height="40px" src="profile_pic5.jpg">
+                            <p id="partner_message">Hello World!</p>
+                        </div>
+
+                    
+
+                    <div class="conversation_partner_profile">
+                        <img id="partner_img" width="100px" height="100px" src="profile_pic5.jpg">
+                        <p id="partner_name">Cee Lee</p>
+                        <button id="view_partner_profile">View Profile</button>
                     </div>
 
-                
-
-                <div class="conversation_partner_profile">
-                    <img id="partner_img" width="100px" height="100px" src="profile_pic5.jpg">
-                    <p id="partner_name">Cee Lee</p>
-                    <button id="view_partner_profile">View Profile</button>
                 </div>
+
+                <form class="send_message_group" action="" method="POST">
+                    
+                    <!-- hidden input file -->
+                    <input type="file" id="uploadImage" name="uploadedImage" accept="image/*"/>
+
+                    <label id="send_img" for="uploadImage">
+                        <ion-icon class="create_post_img_icon" name="images-outline"></ion-icon>
+                    </label>
+
+                    <input type="text" id="message" name="message" required placeholder="Aa">
+
+                    <button id="send_text" type="submit" value="Submit">
+                        <ion-icon name="paper-plane"></ion-icon>
+                    </button>
+
+                </form>
 
             </div>
 
-            <form class="send_message_group" action="" method="POST">
-                
-                <!-- hidden input file -->
-                <input type="file" id="uploadImage" name="uploadedImage" accept="image/*"/>
+            <!-- message option dropdown -->
+            <div class="message_option_dropdown" id="optionDropdown">
 
-                <label id="send_img" for="uploadImage">
-                    <ion-icon class="create_post_img_icon" name="images-outline"></ion-icon>
-                </label>
+                <div class="message_option_title">
+                    <ion-icon id="option_close_button" name="close" onclick="toggleOption()"></ion-icon>
+                    <p class="option_text_profile">Profile</p>
+                </div>
 
-                <input type="text" id="message" name="message" required placeholder="Aa">
+                <div class="main_option_content">
+                    
+                    <div class="option_user_group">
+                        <img class="option_user_img" width="100px" height="100px" src="profile_pic5.jpg">
+                        <p class="option_user_name">Cee Lee</p>
+                    </div>
 
-                <button id="send_text" type="submit" value="Submit">
-                    <ion-icon name="paper-plane"></ion-icon>
-                </button>
+                    <div class="option_files">
+                        
+                        <div class="files_title_group">
+                            <p class="files_title_name">Photos</p>
+                            <ion-icon class="files_expand_btn" name="chevron-forward"></ion-icon>
+                        </div>
 
-            </form>
+                        <div class="files_content_group">
+                            <img class="files_sample" width="100px" height="100px" src="profile_pic1.jpg">
+                            <img class="files_sample" width="100px" height="100px" src="profile_pic2.jpg">
+                            <img class="files_sample" width="100px" height="100px" src="profile_pic3.jpg">
+                            <img class="files_sample" width="100px" height="100px" src="profile_pic4.jpg">
+                            <img class="files_sample" width="100px" height="100px" src="profile_pic5.jpg">
+                            <img class="files_sample" width="100px" height="100px" src="profile_pic6.jpg">
+                        </div>
+
+                    </div>
+
+                    <div class="lower_option_group">
+                        <a class="red_option_btn" onclick="deleteToggle()">Delete conversation</a>
+                        <a class="red_option_btn">Block</a>
+                    </div>
+
+                </div>
+            </div>    
 
         </div>
-
-        <!-- message option dropdown -->
-        <div class="message_opton_dropdown" id="optionDropdown">
-
-            <div class="message_option_title">
-                <ion-icon id="option_close_button" name="close" onclick="toggleOption()"></ion-icon>
-                <p class="option_text_profile">Profile</p>
-            </div>
-
-            <div class="main_option_content">
-                
-                <div class="option_user_group">
-                    <img class="option_user_img" width="100px" height="100px" src="profile_pic5.jpg">
-                    <p class="option_user_name">Cee Lee</p>
-                </div>
-
-                <div class="option_files">
-                    
-                    <!--  
-                    <div class="files_title_group">
-                        <p class="files_title_name">Photos</p>
-                        <ion-icon class="files_expand_btn" name="chevron-forward"></ion-icon>
-                    </div>
-
-                    <div class="files_content_group">
-                        <img class="files_sample" width="50px" height="50px" src="profile_pic1.jpg">
-                        <img class="files_sample" width="50px" height="50px" src="profile_pic2.jpg">
-                        <img class="files_sample" width="50px" height="50px" src="profile_pic3.jpg">
-                        <img class="files_sample" width="50px" height="50px" src="profile_pic4.jpg">
-                        <img class="files_sample" width="50px" height="50px" src="profile_pic5.jpg">
-                        <img class="files_sample" width="50px" height="50px" src="profile_pic8.jpg">
-                    </div>
-                    -->
-                    
-                </div>
-
-                <div class="lower_option_group">
-                    <a class="red_option_btn">Delete conversation</a>
-                    <a class="red_option_btn">Block</a>
-                </div>
-
-            </div>
-        </div>
-
 
     </main>
 
+    <!-- delete conversation popup -->
+    <div class="delete_overlay" id="deleteConversation">
+        <form method="POST" class="delete_form">
+
+        <!-- hidden -->
+        <input type="submit" id="clear" name="clear" value="Clear Messages">
+
+        <ion-icon name="alert-circle-outline" class="alert_icon"></ion-icon>
+        <p class="delete_sure_text">Are you sure?</p>
+        <p class="delete_warning_text">Warning: This will permanently delete all messages in this conversation. This action cannot be undone.</p>
+
+        <div class="delete_btn_group">
+            <label class="delete_no" onclick="deleteToggle()">No</label>
+            <label class="delete_yes" for="clear" onclick="deleteToggle()">Yes</label>
+        </div>
+
+        </form>
+    </div>
 
 
 
