@@ -13,6 +13,17 @@ if (!isset($_SESSION['messages'])) {
     $_SESSION['messages'] = [];
 }
 
+// Function to convert URLs to clickable links
+function makeLinksClickable($text) {
+    // Regular expression to identify URLs
+    $pattern = '/(https?:\/\/[^\s]+)/';
+
+    // Replace URLs with clickable links
+    $text = preg_replace($pattern, '<a id="link_clickable" href="$1" target="_blank" rel="noopener noreferrer">$1</a>', $text);
+
+    return $text;
+}
+
 // Check if form was submitted
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['message'])) {
     // Sanitize the input
@@ -25,7 +36,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['message'])) {
     ];
 }
 ?>
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -214,16 +224,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['message'])) {
                     <img class="chatheads_user_img" width="50px" height="50px" src="profile_pic5.jpg">
                     <div class="chatheads_user_text_group">
                         <p class="chatheads_user_name">Cee Lee</p>
-                        <p class="chatheads_last_message"><?php 
-
-                                        if (!empty($_SESSION['messages'])) {
-
-                                            $last_message = end($_SESSION['messages']);
-                                            echo htmlspecialchars($last_message['message']);
-                                        } else {
-
-                                            echo "no message yet.";
-                                        }?>
+                        <p class="chatheads_last_message">
+                        <?php 
+                            if (!empty($_SESSION['messages'])) {
+                                //$last_message = end($_SESSION['messages']);
+                                //echo makeLinksClickable(htmlspecialchars($last_message['message']));
+                                echo "has sent a message";
+                            } else {
+                                echo "no message yet.";
+                            }
+                        ?>
                         </p>
                     </div>
                 </div>
@@ -258,16 +268,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['message'])) {
 
                     
 
-                        <!-- your message -->
+                        <!-- Display your messages -->
                         <?php if (!empty($_SESSION['messages'])): ?>
                             <?php for ($i = count($_SESSION['messages']) - 1; $i >= 0; $i--): ?>
                                 <div class="your_message_wrap">      
-                                    <p class="your_message"><?php echo htmlspecialchars($_SESSION['messages'][$i]['message']); ?></p>  
+                                    <p class="your_message">
+                                        <?php echo makeLinksClickable($_SESSION['messages'][$i]['message']); ?>
+                                    </p>  
                                 </div>
                             <?php endfor; ?>
                         <?php else: ?>
                             
                         <?php endif; ?>
+
 
                         <!-- partner message -->
                         <div class="partner_chat_group">

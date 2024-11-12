@@ -79,6 +79,19 @@ ion-icon {
     cursor: pointer;
 }
 
+/* php */
+#link_clickable {
+
+    color: #fff;
+    white-space: normal;      /* Allows text to wrap to the next line */
+    overflow-wrap: break-word; /* Breaks words at the end of the line if needed */
+}
+
+#link_clickable:hover {
+
+    border-bottom: 1px solid #fff;
+}
+
 /* header */
 
 .navbar {
@@ -725,6 +738,7 @@ ion-icon {
 
     display: flex;
     flex-direction: column;
+    width: 70%;
 }
 
 .chatheads_user_name {
@@ -735,7 +749,12 @@ ion-icon {
 
 .chatheads_last_message {
 
+    max-width: 70%;
     font-size: 0.7rem;
+    white-space: nowrap;          /* Prevents text from wrapping to a new line */
+    overflow: hidden;             /* Hides the overflowed text */
+    text-overflow: ellipsis;      /* Adds an ellipsis (…) for overflowed text */
+    overflow-x: hidden;
 }
 
 /* chat_box */
@@ -938,6 +957,17 @@ ion-icon {
     background: linear-gradient(90deg, #595bf1 0%, rgba(148, 134, 241, 0.8) 100%);
     
     border-radius: 20px;
+}
+
+.your_message a {
+
+    word-wrap: break-word;        /* Allows the link to wrap to the next line */
+    overflow-wrap: break-word;    /* Ensures words break if they're too long */
+    display: inline-block;
+    max-width: 100%;              /* Limit link width to container width */
+    white-space: normal;          /* Allow text to wrap onto the next line */
+    text-overflow: ellipsis;      /* Adds ellipsis (...) for truncated text */
+    overflow: hidden;
 }
 
 /* send message group icons */
