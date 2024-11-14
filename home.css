@@ -545,11 +545,12 @@ html, body {
     align-items: center;
     justify-content: flex-start;
     padding-left: 10px;
+    border-radius: 50px;
+    background: none;
 }
 
 .icon_wrapper:hover {
 
-    border-radius: 50px;
     background: linear-gradient(90deg, #598cf16f 0%, rgba(148, 134, 241, 0.803) 100%);
 }
 
@@ -1417,6 +1418,7 @@ ion-icon {
 #create_post_input_text {
 
     font-size: 1rem;
+    margin-bottom: 3px;
 }
 
 #post_preview_img_wrap {

@@ -320,42 +320,60 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['message'])) {
             <!-- message option dropdown -->
             <div class="message_option_dropdown" id="optionDropdown">
 
-                <div class="message_option_title">
-                    <ion-icon id="option_close_button" name="close" onclick="toggleOption()"></ion-icon>
-                    <p class="option_text_profile">Profile</p>
-                </div>
-
-                <div class="main_option_content">
-                    
-                    <div class="option_user_group">
-                        <img class="option_user_img" width="100px" height="100px" src="profile_pic5.jpg">
-                        <p class="option_user_name">Cee Lee</p>
+                <div class="message_option_slide">
+                    <div class="message_option_title">
+                        <ion-icon id="option_close_button" name="close" onclick="toggleOption()"></ion-icon>
+                        <p class="option_text_profile">Profile</p>
                     </div>
 
-                    <div class="option_files">
+                    <div class="main_option_content">
                         
-                        <div class="files_title_group">
-                            <p class="files_title_name">Photos</p>
-                            <ion-icon class="files_expand_btn" name="chevron-forward"></ion-icon>
+                        <div class="option_user_group">
+                            <img class="option_user_img" width="100px" height="100px" src="profile_pic5.jpg">
+                            <p class="option_user_name">Cee Lee</p>
                         </div>
 
-                        <div class="files_content_group">
-                            <img class="files_sample" width="100px" height="100px" src="profile_pic1.jpg">
-                            <img class="files_sample" width="100px" height="100px" src="profile_pic2.jpg">
-                            <img class="files_sample" width="100px" height="100px" src="profile_pic3.jpg">
-                            <img class="files_sample" width="100px" height="100px" src="profile_pic4.jpg">
-                            <img class="files_sample" width="100px" height="100px" src="profile_pic5.jpg">
-                            <img class="files_sample" width="100px" height="100px" src="profile_pic6.jpg">
+                        <div class="option_files">
+                            <div class="option_files_wrap">
+                                <div class="files_title_group">
+                                    <p class="files_title_name">Photos</p>
+                                    <ion-icon class="files_expand_btn" name="chevron-forward" onclick="photosToggle()"></ion-icon>
+                                </div>
+
+                                <div class="files_content_group">
+                                    <img class="files_sample" width="75vw" height="75vh" src="profile_pic1.jpg">
+                                    <img class="files_sample" width="75vw" height="75vh" src="profile_pic2.jpg">
+                                    <img class="files_sample" width="75vw" height="75vh" src="profile_pic3.jpg">
+                                    <img class="files_sample" width="75vw" height="75vh" src="profile_pic6.jpg">
+                                </div>
+                            </div>   
+                        </div>
+
+                        <div class="lower_option_group">
+                            <a class="red_option_btn" onclick="deleteToggle()">Delete conversation</a>
+                            <a class="red_option_btn">Block</a>
                         </div>
 
                     </div>
+                </div>
 
-                    <div class="lower_option_group">
-                        <a class="red_option_btn" onclick="deleteToggle()">Delete conversation</a>
-                        <a class="red_option_btn">Block</a>
+                <!-- photos tab -->
+                <div class="photos_tab" id="photoTab">
+
+                    <div class="photos_title_group">
+                        <ion-icon id="photos_back_btn" name="arrow-back-outline" onclick="photosToggle()"></ion-icon>
+                        <p class="photos_text">Photos</p>
+                    </div>
+
+                    <div id="files_img_group">
+                        <img class="files_sample" width="75vw" height="75vh" src="profile_pic1.jpg">
+                        <img class="files_sample" width="75vw" height="75vh" src="profile_pic2.jpg">
+                        <img class="files_sample" width="75vw" height="75vh" src="profile_pic3.jpg">
+                        <img class="files_sample" width="75vw" height="75vh" src="profile_pic6.jpg">
                     </div>
 
                 </div>
+
             </div>    
 
         </div>

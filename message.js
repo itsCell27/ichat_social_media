@@ -64,3 +64,21 @@ function deleteToggle() {
         deleteConversation.classList.add("show");
     }
 }
+
+// photos tab
+function photosToggle() {
+
+    const container = document.querySelector('.message_option_dropdown');
+    container.classList.toggle('active');
+}
+
+function slideIn() {
+    const box2 = document.querySelector('.box2');
+    box2.classList.add('active');  // Adds the class to slide in Box 2
+}
+
+function slideOut() {
+    const box2 = document.querySelector('.box2');
+    box2.classList.remove('active');  // Removes the class to slide out Box 2
+}
+
