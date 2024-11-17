@@ -19,14 +19,14 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=library_add,notifications" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=search" />
     <script src="https://kit.fontawesome.com/fa0399c701.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="home.css">
+    <link rel="stylesheet" href="css/home.css">
 </head>
 <body>
 
     <header class="navbar">
 
         <div class="left_icon">
-            <img class="logo" width="40px" height="40px" src="ichat_logo.png">
+            <img class="logo" width="40px" height="40px" src="css/imgs/ichat_logo.png">
             <h5>iChat</h5>
         </div>
         
@@ -48,7 +48,7 @@
                 </span>
             </button>
             <button class="profile_btn" onclick="toggleProfile()">
-                <img class="profile" width="40px" height="40px" src="profile_pic1.jpg">
+                <img class="profile" width="40px" height="40px" src="css/imgs/profile_pic1.jpg">
             </button>
         </div>
         
@@ -61,7 +61,7 @@
         </div>
         <div class="notif_white_bg">
             <div class="follow_request">
-                <img width="40px" height="40px" src="follow_request_img.png">
+                <img width="40px" height="40px" src="css/imgs/follow_request_img.png">
                 <div class="request_text_group">
                     <p class="request_text_follow">Follow request</p>
                     <p class="request_text_plus">itshiro20 + 3 others</p>
@@ -73,21 +73,21 @@
             <div class="earlier">
                 <p class="earlier_text">Earlier</p>
                 <div class="earlier_wrapper">
-                    <img class="notif_user_img" width="40px" height="40px" src="profile_pic3.jpg">
+                    <img class="notif_user_img" width="40px" height="40px" src="css/imgs/profile_pic3.jpg">
                     <div class="notif_group_text">
                         <p class="user_text">jws.pjs&nbsp;</p>
                         <p class="notif_info">liked your post. 1m</p>
                     </div>
-                    <img class="notif_post_img" width="40px" height="40px" src="post_sample.jpg">
+                    <img class="notif_post_img" width="40px" height="40px" src="css/imgs/post_sample.jpg">
                 </div>
 
                 <div class="earlier_wrapper">
-                    <img class="notif_user_img" width="40px" height="40px" src="profile_pic3.jpg">
+                    <img class="notif_user_img" width="40px" height="40px" src="css/imgs/profile_pic3.jpg">
                     <div class="notif_group_text">
                         <p class="user_text">jws.pjs&nbsp;</p>
                         <p class="notif_info">liked your post. 1m</p>
                     </div>
-                    <img class="notif_post_img" width="40px" height="40px" src="post_sample2.jpg">
+                    <img class="notif_post_img" width="40px" height="40px" src="css/imgs/post_sample2.jpg">
                 </div>
             </div>
 
@@ -97,30 +97,30 @@
             <div class="earlier">
                 <p class="earlier_text">New</p>
                 <div class="earlier_wrapper">
-                    <img class="notif_user_img" width="40px" height="40px" src="profile_pic6.jpg">
+                    <img class="notif_user_img" width="40px" height="40px" src="css/imgs/profile_pic6.jpg">
                     <div class="notif_group_text">
                         <p class="user_text">jws.pjs&nbsp;</p>
                         <p class="notif_info">liked your post. 1m</p>
                     </div>
-                    <img class="notif_post_img" width="40px" height="40px" src="post_sample.jpg">
+                    <img class="notif_post_img" width="40px" height="40px" src="css/imgs/post_sample.jpg">
                 </div>
 
                 <div class="earlier_wrapper">
-                    <img class="notif_user_img" width="40px" height="40px" src="profile_pic7.jpg">
+                    <img class="notif_user_img" width="40px" height="40px" src="css/imgs/profile_pic7.jpg">
                     <div class="notif_group_text">
                         <p class="user_text">jws.pjs&nbsp;</p>
                         <p class="notif_info">liked your post. 1m</p>
                     </div>
-                    <img class="notif_post_img" width="40px" height="40px" src="post_sample2.jpg">
+                    <img class="notif_post_img" width="40px" height="40px" src="css/imgs/post_sample2.jpg">
                 </div>
 
                 <div class="earlier_wrapper">
-                    <img class="notif_user_img" width="40px" height="40px" src="profile_pic5.jpg">
+                    <img class="notif_user_img" width="40px" height="40px" src="css/imgs/profile_pic5.jpg">
                     <div class="notif_group_text">
                         <p class="user_text">jws.pjs&nbsp;</p>
                         <p class="notif_info">liked your post. 1m</p>
                     </div>
-                    <img class="notif_post_img" width="40px" height="40px" src="post_sample2.jpg">
+                    <img class="notif_post_img" width="40px" height="40px" src="css/imgs/post_sample2.jpg">
                 </div>
             </div>
         </div>
@@ -135,7 +135,7 @@
         <hr class="notif_line">
         <br>
         <div class="user_profile_wrapper">
-            <img class="user_profile_img" width="40px" height="40px" src="profile_pic1.jpg">
+            <img class="user_profile_img" width="40px" height="40px" src="css/imgs/profile_pic1.jpg">
             <p class="user_text_name">Name</p>
         </div>
         <br>
@@ -148,7 +148,7 @@
                 </button>
                 <p class="profile_menu_text">Settings & Privacy</p>
             </div>
-            <div class="profile_menu_btn">
+            <div class="profile_menu_btn" onclick="window.location.href='index.php'">
                 <button class="profile_logout">
                     <ion-icon name="log-out-outline"></ion-icon>
                 </button>
@@ -202,7 +202,7 @@
                 </div>
 
                 <div class="icon_wrapper menu_profile">
-                    <img class="profile" width="40px" height="40px" src="profile_pic1.jpg">
+                    <img class="profile" width="40px" height="40px" src="css/imgs/profile_pic1.jpg">
                     <p class="profile_name">Name</p>
                 </div>
 
@@ -259,7 +259,7 @@
                     <div class="main_create_post">
 
                         <div class="upper_create_post">
-                            <img id="create_post_user_img" src="profile_pic1.jpg">
+                            <img id="create_post_user_img" src="css/imgs/profile_pic1.jpg">
                             <div class="create_post_info">
                                 <p id="create_post_user">Name</p>
                             </div>
@@ -267,7 +267,7 @@
 
                         <div class="create_post_contents">
 
-                            <input id="create_post_input_text" type="text" placeholder="What's on your mind?">
+                            <textarea id="create_post_input_text" type="text" placeholder="What's on your mind?"></textarea>
 
                             <div id="post_preview_img_wrap">
                                 <img id="previewImg" alt="Image Preview">
@@ -315,7 +315,7 @@
                         </div>
 
                         <label class="tag_a_user_wrap" for="checkbox_tag">
-                            <img width="50px" height="50px" id="tag_a_user_img" src="profile_pic8.jpg">
+                            <img width="50px" height="50px" id="tag_a_user_img" src="css/imgs/profile_pic8.jpg">
                             <p>KSI</p>
                             <input id="checkbox_tag" type="checkbox" class="tag_checkbox">
                         </label>
@@ -359,43 +359,59 @@
             <div class="post_story">
 
                 <div class="post_story_user">
-                    <img class="post_story_user_img" width="60px" height="60px" src="profile_pic1.jpg">
+                    <div class="story_img_user_containner">
+                        <img class="post_story_user_img" width="60px" height="60px" src="css/imgs/profile_pic1.jpg">
+                    </div>
                     <p class="post_story_user_text">Your story</p>
                 </div>
 
                 <div class="post_story_user">
-                    <img class="post_story_user_img" width="60px" height="60px" src="profile_pic2.jpg">
+                    <div class="story_img_user_containner">
+                        <img class="post_story_user_img" width="60px" height="60px" src="css/imgs/profile_pic2.jpg">
+                    </div>
                     <p class="post_story_user_text">Wannabie</p>
                 </div>
 
                 <div class="post_story_user">
-                    <img class="post_story_user_img" width="60px" height="60px" src="profile_pic3.jpg">
+                    <div class="story_img_user_containner">
+                        <img class="post_story_user_img" width="60px" height="60px" src="css/imgs/profile_pic3.jpg">
+                    </div>
                     <p class="post_story_user_text">Norris</p>
                 </div>
 
                 <div class="post_story_user">
-                    <img class="post_story_user_img" width="60px" height="60px" src="profile_pic4.jpg">
+                    <div class="story_img_user_containner">
+                        <img class="post_story_user_img" width="60px" height="60px" src="css/imgs/profile_pic4.jpg">
+                    </div>
                     <p class="post_story_user_text">Kler</p>
                 </div>
 
                 <div class="post_story_user">
-                    <img class="post_story_user_img" width="60px" height="60px" src="profile_pic5.jpg">
+                    <div class="story_img_user_containner">
+                        <img class="post_story_user_img" width="60px" height="60px" src="css/imgs/profile_pic5.jpg">
+                    </div>
                     <p class="post_story_user_text">Cee</p>
                 </div>
 
                 <div class="post_story_user">
-                    <img class="post_story_user_img" width="60px" height="60px" src="profile_pic6.jpg">
+                    <div class="story_img_user_containner">
+                        <img class="post_story_user_img" width="60px" height="60px" src="css/imgs/profile_pic6.jpg">
+                    </div>
                     <p class="post_story_user_text">Isha</p>
                 </div>
 
                 <div class="post_story_user">
-                    <img class="post_story_user_img" width="60px" height="60px" src="profile_pic4.jpg">
+                    <div class="story_img_user_containner">
+                        <img class="post_story_user_img" width="60px" height="60px" src="css/imgs/profile_pic7.jpg">
+                    </div>
                     <p class="post_story_user_text">Isha</p>
                 </div>
 
                 <div class="post_story_user">
-                    <img class="post_story_user_img" width="60px" height="60px" src="profile_pic7.jpg">
-                    <p class="post_story_user_text">Isha</p>
+                    <div class="story_img_user_containner">
+                        <img class="post_story_user_img" width="60px" height="60px" src="css/imgs/profile_pic8.jpg">
+                    </div>
+                    <p class="post_story_user_text">KSI</p>
                 </div>
 
             </div>
@@ -404,7 +420,7 @@
             <div class="post">
 
                 <div class="upper_post_tag">
-                    <img class="user_profile" width="50px" height="50px" src="profile_pic5.jpg">
+                    <img class="user_profile" width="50px" height="50px" src="css/imgs/profile_pic5.jpg">
                     <div class="post_text">
                         <h3 class="user_name">Cee Lee</h3>
                         <p class="post_time">1h</p>
@@ -420,7 +436,7 @@
                 </div>
 
                 <div class="post_img_wrapper">
-                    <img class="post_img" src="post_sample2.jpg">
+                    <img class="post_img" src="css/imgs/post_sample2.jpg">
                 </div>
 
                 <div class="post_icons">
@@ -439,10 +455,10 @@
                     </div>
 
                     <div class="post_icon_wrapper">
-                        <button class="post_icon_btn" id="share">
+                        <button class="post_icon_btn" id="share" onclick="toggleShare()">
                             <ion-icon name="arrow-redo-outline"></ion-icon>
                         </button>
-                        <p class="post_icon_text">share</p>
+                        <p class="post_icon_text" onclick="toggleShare()">share</p>
                     </div>
 
                 </div>
@@ -477,7 +493,34 @@
 
 
     </main>
-    
+
+
+    <!-- like overlay -->
+    <div class="like_overlay" id="likeBox">
+
+        <!-- like box -->
+        <div class="like_box">
+            <div class="like_box_wrap">
+
+                <div class="like_post_title">
+                    <p class="like_text">Likes</p>
+                    <button class="like_close" onclick="closeLike()">
+                        <ion-icon id="close_icon" name="close"></ion-icon>
+                    </button>
+                </div>
+
+                <div class="main_like">
+                    <div class="users_like">
+                        <img class="user_like_img" width="50px" height="50px" src="css/imgs/profile_pic6.jpg">
+                        <p class="user_like_name">Lee</p>
+                        <button class="like_follow_btn" onclick="toggleFollow(this)">Follow</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
 
     <!-- comment overlay -->
     <div class="comment_overlay" id="commentBox">
@@ -499,7 +542,7 @@
 
                         <div class="comment_containner">
                             <div class="upper_comment">
-                                <img id="user_comment_profile" width="40px" height="40px" src="profile_pic4.jpg">
+                                <img id="user_comment_profile" width="40px" height="40px" src="css/imgs/profile_pic4.jpg">
                                 <div class="comment_info">
                                     <p id="user_comment_name">Speed</p>
                                     <p id="user_comment_text">YO! nc view</p>
@@ -535,30 +578,90 @@
     </div>
 
 
-    <!-- like overlay -->
-    <div class="like_overlay" id="likeBox">
+    <!-- share tab -->
+    <div class="share_tab_overlay">
 
-        <!-- like box -->
-        <div class="like_box">
-            <div class="like_box_wrap">
+        <div class="share_tab">
+            
+            <div class="share_tab_title">
+                <p class="share_title">Share</p>
+                <button class="comment_close" onclick="toggleShare()">
+                    <ion-icon id="close_icon" name="close"></ion-icon>
+                </button>
+            </div>
 
-                <div class="like_post_title">
-                    <p class="like_text">Likes</p>
-                    <button class="like_close" onclick="closeLike()">
-                        <ion-icon id="close_icon" name="close"></ion-icon>
-                    </button>
+            <div class="main_share_tab">
+
+                <div class="share_user_info">
+                    <img class="share_user_img" src="css/imgs/profile_pic1.jpg">
+                    <form class="share_user_text_group" id="shareUserText">
+                        <p class="share_user_name">Name</p>
+                        <select id="share_audience" name="audience_list" form="shareUserText">
+                            <option value="public">Public</option>
+                            <option value="friends">Friends</option>
+                            <option value="private">Private</option>
+                        </select>
+                    </form>
                 </div>
 
-                <div class="main_like">
-                    <div class="users_like">
-                        <img class="user_like_img" width="50px" height="50px" src="profile_pic6.jpg">
-                        <p class="user_like_name">Lee</p>
-                        <button class="like_follow_btn" onclick="toggleFollow(this)">Follow</button>
+                <textarea class="share_input_text" placeholder="What's on your mind?"></textarea>
+
+                <div class="share_post_preview">
+                    <!-- user's post -->
+                    <div class="post">
+
+                        <div class="upper_post_tag">
+                            <img class="user_profile" width="50px" height="50px" src="css/imgs/profile_pic5.jpg">
+                            <div class="post_text">
+                                <h3 class="user_name">Cee Lee</h3>
+                                <p class="post_time">1h</p>
+                            </div>
+                            <div class="toggle_btn">
+                                <ion-icon id="toggle_option" name="ellipsis-horizontal-outline"></ion-icon>
+                            </div>
+                        </div>
+
+                        <div class="post_description">
+                            <p class="text_description">Overwhelming view!&nbsp;</p>
+                            <p class="text_hashtag">#river #adventure</p>
+                        </div>
+
+                        <div class="post_img_wrapper">
+                            <img class="post_img" src="css/imgs/post_sample2.jpg">
+                        </div>
+
+                        <div class="post_icons">
+                            <div class="post_icon_wrapper">
+                                <button class="post_icon_btn_heart">
+                                    <ion-icon name="heart-outline"></ion-icon>
+                                </button>
+                                <button class="post_icon_text">0</button>
+                            </div>
+                            
+                            <div class="post_icon_wrapper">
+                                <button class="post_icon_btn" id="comment">
+                                    <ion-icon name="chatbubble-outline"></ion-icon>
+                                </button>
+                                <p class="post_icon_text">0</p>
+                            </div>
+
+                            <div class="post_icon_wrapper">
+                                <button class="post_icon_btn" id="share">
+                                    <ion-icon name="arrow-redo-outline"></ion-icon>
+                                </button>
+                                <p class="post_icon_text">share</p>
+                            </div>
+
+                        </div>
+
                     </div>
+                    <!-- end of user post -->
                 </div>
 
             </div>
+
         </div>
+
     </div>
 
     <!-- follow -->
@@ -567,7 +670,7 @@
             <div class="follow_wrapper">
 
                 <div class="follow_container">
-                    <img class="profile follow_profile" width="40px" height="40px" src="profile_pic4.jpg">
+                    <img class="profile follow_profile" width="40px" height="40px" src="css/imgs/profile_pic4.jpg">
                     <div class="follow_text">
                         <p class="follow_name">Staku Virtigo</p>
                         <p class="follow_description">Followed by marcus + 5 more</p>
@@ -580,7 +683,7 @@
                 </div>
 
                 <div class="follow_container">
-                    <img class="profile follow_profile" width="40px" height="40px" src="profile_pic7.jpg">
+                    <img class="profile follow_profile" width="40px" height="40px" src="css/imgs/profile_pic7.jpg">
                     <div class="follow_text">
                         <p class="follow_name">Staku Virtigo</p>
                         <p class="follow_description">Followed by marcus + 5 more</p>
@@ -594,7 +697,7 @@
                 </div>
 
                 <div class="follow_container">
-                    <img class="profile follow_profile" width="40px" height="40px" src="profile_pic2.jpg">
+                    <img class="profile follow_profile" width="40px" height="40px" src="css/imgs/profile_pic2.jpg">
                     <div class="follow_text">
                         <p class="follow_name">Staku Virtigo</p>
                         <p class="follow_description">Followed by marcus + 5 more</p>
@@ -607,7 +710,7 @@
                 </div>
 
                 <div class="follow_container">
-                    <img class="profile follow_profile" width="40px" height="40px" src="profile_pic5.jpg">
+                    <img class="profile follow_profile" width="40px" height="40px" src="css/imgs/profile_pic5.jpg">
                     <div class="follow_text">
                         <p class="follow_name">Staku Virtigo</p>
                         <p class="follow_description">Followed by marcus + 5 more</p>
@@ -620,7 +723,7 @@
                 </div>
 
                 <div class="follow_container">
-                    <img class="profile follow_profile" width="40px" height="40px" src="profile_pic6.jpg">
+                    <img class="profile follow_profile" width="40px" height="40px" src="css/imgs/profile_pic6.jpg">
                     <div class="follow_text">
                         <p class="follow_name">Staku Virtigo</p>
                         <p class="follow_description">Followed by marcus + 5 more</p>

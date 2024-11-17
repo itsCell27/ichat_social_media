@@ -1,51 +1,51 @@
 @font-face {
     font-family: 'poppins';
-    src: url('Poppins-Regular.ttf');
+    src: url('fonts/Poppins-Regular.ttf');
 }
 
 @font-face {
     font-family: 'poppins_bold';
-    src: url('Poppins-Bold.ttf');
+    src: url('fonts/Poppins-Bold.ttf');
 }
 
 @font-face {
     font-family: 'poppins_light';
-    src: url('Poppins-Light.ttf');
+    src: url('fonts/Poppins-Light.ttf');
 }
 
 @font-face {
     font-family: 'sf_regular';
-    src: url('SFPRODISPLAYREGULAR.OTF');
+    src: url('fonts/SFPRODISPLAYREGULAR.OTF');
 }
 
 @font-face {
     font-family: 'sf_bold';
-    src: url('SFPRODISPLAYBOLD.OTF');
+    src: url('fonts/SFPRODISPLAYBOLD.OTF');
 }
 
 @font-face {
     font-family: 'sf_medium';
-    src: url('SFPRODISPLAYMEDIUM.OTF');
+    src: url('fonts/SFPRODISPLAYMEDIUM.OTF');
 }
 
 @font-face {
     font-family: 'sf_thin_italic';
-    src: url('SFPRODISPLAYTHINITALIC.OTF');
+    src: url('fonts/SFPRODISPLAYTHINITALIC.OTF');
 }
 
 @font-face {
     font-family: 'yantra';
-    src: url('Yantramanav-Regular.ttf');
+    src: url('fonts/Yantramanav-Regular.ttf');
 }
 
 @font-face {
     font-family: 'yantra_bold';
-    src: url('Yantramanav-Bold.ttf');
+    src: url('fonts/Yantramanav-Bold.ttf');
 }
 
 @font-face {
     font-family: 'yantra_light';
-    src: url('Yantramanav-Light.ttf');
+    src: url('fonts/Yantramanav-Light.ttf');
 }
 
 *{
@@ -57,7 +57,7 @@
     outline: none;
     border: none;
     text-decoration: none;
-    transition: all 0.3s linear;  /* Smooth transition for all properties */
+    transition: all 0.2s linear;  /* Smooth transition for all properties */
 }
 
 html, body {
@@ -148,6 +148,7 @@ html, body {
     border-radius: 50%;
     border: 1px solid #000;
     background: none;
+    transition: all 0.2s ease;
 }
 
 .notif_icon:hover {
@@ -629,11 +630,24 @@ html, body {
     margin-bottom: 10px;
 }
 
+.story_img_user_containner {
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: fit-content;
+    height: fit-content;
+    padding: 4%;
+    /* background: #a01bf7; */
+    background: linear-gradient(0deg, rgba(18,194,233,1) 0%, #9f1bf7 100%);
+    margin-bottom: 10px;
+    border-radius: 50%;
+}
+
 .post_story_user_img {
 
-    border-radius: 50px;
-    border: 3px solid #a01bf7;
-    margin-bottom: 10px;
+    border-radius: 50%;
+    border: 0.2rem solid #ffffff;
 }
 
 .post_story_user_text {
@@ -955,13 +969,16 @@ ion-icon {
 
 .upper_comment {
 
+    position: relative;
     width: 100%;
     display: flex;
 }
 
 #comment_heart_btn {
 
-    margin-left: 73%;
+    position: absolute;
+    top: 4%;
+    right: 2%;
 }
 
 #user_comment_profile {
@@ -1338,11 +1355,11 @@ ion-icon {
     display: none;
     background: none;
     width: 40%;
-    height: fit-content;
-    max-height: 85%;
+    height: 90%;
     z-index: 500;
     border-radius: 10px;
     overflow: hidden;
+    overflow-x: hidden;
 }
 
 .create_post_box.show {
@@ -1357,6 +1374,7 @@ ion-icon {
     height: 85%;
     padding: 3%;
     background-color: #dddddd;
+    overflow-y: auto;
 }
 
 .create_title_post {
@@ -1364,7 +1382,7 @@ ion-icon {
     position: relative;
     top: 0;
     width: 100%;
-    height: 80px;
+    height: 15%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -1419,6 +1437,10 @@ ion-icon {
 
     font-size: 1rem;
     margin-bottom: 3px;
+    min-height: 50px;
+    max-height: 100px;
+    overflow-y: auto;
+    resize: none;
 }
 
 #post_preview_img_wrap {
@@ -1703,12 +1725,13 @@ ion-icon {
     justify-content: center;
     align-items: center;
     width: 35%;
-    height: 50%;
+    height: 32vh;
     border-radius: 10px;
-    background-image: url('story_text_bg.jpg');
-    background-size: cover; /* Makes the image cover the entire div */
-    background-position: center; /* Centers the image in the div */
-    background-repeat: no-repeat; /* Prevents the image from tiling */
+    /* background-image: url('story_text_bg.jpg'); */
+    /* background-size: cover; Makes the image cover the entire div */
+    /* background-position: center; Centers the image in the div */
+    /* background-repeat: no-repeat; Prevents the image from tiling */
+    background: linear-gradient(0deg, rgba(246,79,89,1) 0%, rgba(196,113,237,1) 100%);
 }
 
 .create_story_post_photo {
@@ -1717,18 +1740,19 @@ ion-icon {
     justify-content: center;
     align-items: center;
     width: 35%;
-    height: 50%;
+    height: 32vh;
     border-radius: 10px;
-    background-image: url('story_photo_bg.jpg');
-    background-size: cover; /* Makes the image cover the entire div */
-    background-position: center; /* Centers the image in the div */
-    background-repeat: no-repeat; /* Prevents the image from tiling */
+    /* background-image: url('story_photo_bg.jpg'); */
+    /* background-size: cover; Makes the image cover the entire div */
+    /* background-position: center; /* Centers the image in the div */
+    /* background-repeat: no-repeat; Prevents the image from tiling */
+    background: linear-gradient(0deg, rgba(142,45,226,1) 0%, rgba(18,194,233,1) 100%);
 }
 
 .main_create_story_btns {
 
     width: 60%;
-    height: 20%;
+    height: 5vh;
     color: #ffffff;
     font-size: 1.3rem;
     font-weight: bold;
@@ -1807,3 +1831,125 @@ ion-icon {
     background: none;
 }
 
+/* share tab */
+.share_tab_overlay {
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 400;
+    width: 100%;
+    height: 100%;
+    background-color: #00000058;
+}
+
+.share_tab_overlay.show {
+
+    display: flex;
+}
+
+.share_tab {
+
+    background: none;
+    width: 40%;
+    height: 70%;
+    z-index: 500;
+    border-radius: 10px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.share_tab_title {
+
+    position: relative;
+    top: 0;
+    width: 100%;
+    height: 15%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #ffffff4f;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur( 10px );
+}
+
+.share_title {
+
+    font-family: 'sf_bold';
+    font-size: 1.5rem;
+}
+
+.main_share_tab {
+
+    flex: 1;
+    background: #ededed;
+    overflow-y: auto;
+}
+
+.share_user_info {
+
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    padding: 2%;
+}
+
+.share_user_img {
+
+    border-radius: 50%;
+    width: 45px;
+    height: 45px;
+    margin-right: 2%;
+}
+
+.share_user_text_group {
+
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+}
+
+.share_user_name {
+
+    font-size: 1.1rem;
+    font-family: 'yantra_bold';
+    margin-bottom: 2%;
+}
+
+#share_audience {
+
+    border-radius: 5px;
+    font-size: 0.9rem;
+    font-family: 'yantra';
+    background: #fff;
+    padding: 2%;
+}
+
+.share_input_text {
+
+    padding: 2%;
+    width: 98%;
+    max-width: 100%;
+    resize: none;
+    min-height: 10px;
+    max-height: 200px;
+    overflow-y: auto;
+    font-size: 1rem;
+    background: none;
+}
+
+.share_post_preview {
+
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: fit-content;
+
+}

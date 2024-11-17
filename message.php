@@ -46,7 +46,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['message'])) {
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=library_add,notifications" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=search" />
     <script src="https://kit.fontawesome.com/fa0399c701.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="message.css">
+    <link rel="stylesheet" href="css/message.css">
 </head>
 <body>
 
@@ -54,7 +54,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['message'])) {
     <header class="navbar">
 
         <div class="left_icon" onclick="window.location.href='home.php'">
-            <img class="logo" width="40px" height="40px" src="ichat_logo.png">
+            <img class="logo" width="40px" height="40px" src="css/imgs/ichat_logo.png">
             <h5>iChat</h5>
         </div>
         
@@ -76,7 +76,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['message'])) {
                 </span>
             </button>
             <button class="profile_btn" onclick="toggleProfile()">
-                <img class="profile" width="40px" height="40px" src="profile_pic1.jpg">
+                <img class="profile" width="40px" height="40px" src="css/imgs/profile_pic1.jpg">
             </button>
         </div>
         
@@ -89,7 +89,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['message'])) {
         </div>
         <div class="notif_white_bg">
             <div class="follow_request">
-                <img width="40px" height="40px" src="follow_request_img.png">
+                <img width="40px" height="40px" src="css/imgs/follow_request_img.png">
                 <div class="request_text_group">
                     <p class="request_text_follow">Follow request</p>
                     <p class="request_text_plus">itshiro20 + 3 others</p>
@@ -101,21 +101,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['message'])) {
             <div class="earlier">
                 <p class="earlier_text">Earlier</p>
                 <div class="earlier_wrapper">
-                    <img class="notif_user_img" width="40px" height="40px" src="profile_pic3.jpg">
+                    <img class="notif_user_img" width="40px" height="40px" src="css/imgs/profile_pic3.jpg">
                     <div class="notif_group_text">
                         <p class="user_text">jws.pjs&nbsp;</p>
                         <p class="notif_info">liked your post. 1m</p>
                     </div>
-                    <img class="notif_post_img" width="40px" height="40px" src="post_sample.jpg">
+                    <img class="notif_post_img" width="40px" height="40px" src="css/imgs/post_sample.jpg">
                 </div>
 
                 <div class="earlier_wrapper">
-                    <img class="notif_user_img" width="40px" height="40px" src="profile_pic3.jpg">
+                    <img class="notif_user_img" width="40px" height="40px" src="css/imgs/profile_pic3.jpg">
                     <div class="notif_group_text">
                         <p class="user_text">jws.pjs&nbsp;</p>
                         <p class="notif_info">liked your post. 1m</p>
                     </div>
-                    <img class="notif_post_img" width="40px" height="40px" src="post_sample2.jpg">
+                    <img class="notif_post_img" width="40px" height="40px" src="css/imgs/post_sample2.jpg">
                 </div>
             </div>
 
@@ -125,30 +125,30 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['message'])) {
             <div class="earlier">
                 <p class="earlier_text">New</p>
                 <div class="earlier_wrapper">
-                    <img class="notif_user_img" width="40px" height="40px" src="profile_pic6.jpg">
+                    <img class="notif_user_img" width="40px" height="40px" src="css/imgs/profile_pic6.jpg">
                     <div class="notif_group_text">
                         <p class="user_text">jws.pjs&nbsp;</p>
                         <p class="notif_info">liked your post. 1m</p>
                     </div>
-                    <img class="notif_post_img" width="40px" height="40px" src="post_sample.jpg">
+                    <img class="notif_post_img" width="40px" height="40px" src="css/imgs/post_sample.jpg">
                 </div>
 
                 <div class="earlier_wrapper">
-                    <img class="notif_user_img" width="40px" height="40px" src="profile_pic7.jpg">
+                    <img class="notif_user_img" width="40px" height="40px" src="css/imgs/profile_pic7.jpg">
                     <div class="notif_group_text">
                         <p class="user_text">jws.pjs&nbsp;</p>
                         <p class="notif_info">liked your post. 1m</p>
                     </div>
-                    <img class="notif_post_img" width="40px" height="40px" src="post_sample2.jpg">
+                    <img class="notif_post_img" width="40px" height="40px" src="css/imgs/post_sample2.jpg">
                 </div>
 
                 <div class="earlier_wrapper">
-                    <img class="notif_user_img" width="40px" height="40px" src="profile_pic5.jpg">
+                    <img class="notif_user_img" width="40px" height="40px" src="css/imgs/profile_pic5.jpg">
                     <div class="notif_group_text">
                         <p class="user_text">jws.pjs&nbsp;</p>
                         <p class="notif_info">liked your post. 1m</p>
                     </div>
-                    <img class="notif_post_img" width="40px" height="40px" src="post_sample2.jpg">
+                    <img class="notif_post_img" width="40px" height="40px" src="css/imgs/post_sample2.jpg">
                 </div>
             </div>
         </div>
@@ -163,7 +163,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['message'])) {
         <hr class="notif_line">
         <br>
         <div class="user_profile_wrapper">
-            <img class="user_profile_img" width="40px" height="40px" src="profile_pic1.jpg">
+            <img class="user_profile_img" width="40px" height="40px" src="css/imgs/profile_pic1.jpg">
             <p class="user_text_name">Name</p>
         </div>
         <br>
@@ -221,15 +221,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['message'])) {
 
                 <!-- single user containner -->
                 <div class="chatheads_user_wrap">
-                    <img class="chatheads_user_img" width="50px" height="50px" src="profile_pic5.jpg">
+                    <img class="chatheads_user_img" src="css/imgs/profile_pic5.jpg">
                     <div class="chatheads_user_text_group">
                         <p class="chatheads_user_name">Cee Lee</p>
                         <p class="chatheads_last_message">
                         <?php 
                             if (!empty($_SESSION['messages'])) {
-                                //$last_message = end($_SESSION['messages']);
-                                //echo makeLinksClickable(htmlspecialchars($last_message['message']));
-                                echo "has sent a message";
+                                $last_message = end($_SESSION['messages']);
+                                echo makeLinksClickable(htmlspecialchars($last_message['message']));
+                                //echo "has sent a message";
                             } else {
                                 echo "no message yet.";
                             }
@@ -252,7 +252,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['message'])) {
 
                 <div class="chat_box_navbar">
                     <div class="chat_box_img_status">
-                        <img id="user_img_status" width="40px" height="40px" src="profile_pic5.jpg">
+                        <img id="user_img_status" width="40px" height="40px" src="css/imgs/profile_pic5.jpg">
                         <ion-icon id="user_status_icon" name="ellipse"></ion-icon>
                     </div>
                     
@@ -284,14 +284,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['message'])) {
 
                         <!-- partner message -->
                         <div class="partner_chat_group">
-                            <img id="partner_chat_img" width="40px" height="40px" src="profile_pic5.jpg">
+                            <img id="partner_chat_img" width="40px" height="40px" src="css/imgs/profile_pic5.jpg">
                             <p id="partner_message">Hello World!</p>
                         </div>
 
                     
 
                     <div class="conversation_partner_profile">
-                        <img id="partner_img" width="100px" height="100px" src="profile_pic5.jpg">
+                        <img id="partner_img" width="100px" height="100px" src="css/imgs/profile_pic5.jpg">
                         <p id="partner_name">Cee Lee</p>
                         <button id="view_partner_profile">View Profile</button>
                     </div>
@@ -306,8 +306,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['message'])) {
                     <label id="send_img" for="uploadImage">
                         <ion-icon class="create_post_img_icon" name="images-outline"></ion-icon>
                     </label>
-
-                    <input type="text" id="message" name="message" required placeholder="Aa">
+                    
+                    <div class="message_input_containner">
+                        <input type="text" id="message" name="message" required placeholder="Aa">
+                    </div>
 
                     <button id="send_text" type="submit" value="Submit">
                         <ion-icon name="paper-plane"></ion-icon>
@@ -329,7 +331,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['message'])) {
                     <div class="main_option_content">
                         
                         <div class="option_user_group">
-                            <img class="option_user_img" width="100px" height="100px" src="profile_pic5.jpg">
+                            <img class="option_user_img" width="100px" height="100px" src="css/imgs/profile_pic5.jpg">
                             <p class="option_user_name">Cee Lee</p>
                         </div>
 
@@ -341,10 +343,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['message'])) {
                                 </div>
 
                                 <div class="files_content_group">
-                                    <img class="files_sample" width="75vw" height="75vh" src="profile_pic1.jpg">
-                                    <img class="files_sample" width="75vw" height="75vh" src="profile_pic2.jpg">
-                                    <img class="files_sample" width="75vw" height="75vh" src="profile_pic3.jpg">
-                                    <img class="files_sample" width="75vw" height="75vh" src="profile_pic6.jpg">
+                                    <img class="files_sample" width="75vw" height="75vh" src="css/imgs/profile_pic1.jpg">
+                                    <img class="files_sample" width="75vw" height="75vh" src="css/imgs/profile_pic2.jpg">
+                                    <img class="files_sample" width="75vw" height="75vh" src="css/imgs/profile_pic3.jpg">
+                                    <img class="files_sample" width="75vw" height="75vh" src="css/imgs/profile_pic6.jpg">
                                 </div>
                             </div>   
                         </div>
@@ -366,10 +368,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['message'])) {
                     </div>
 
                     <div id="files_img_group">
-                        <img class="files_sample" width="75vw" height="75vh" src="profile_pic1.jpg">
-                        <img class="files_sample" width="75vw" height="75vh" src="profile_pic2.jpg">
-                        <img class="files_sample" width="75vw" height="75vh" src="profile_pic3.jpg">
-                        <img class="files_sample" width="75vw" height="75vh" src="profile_pic6.jpg">
+                        <img class="files_sample" width="75vw" height="75vh" src="css/imgs/profile_pic1.jpg">
+                        <img class="files_sample" width="75vw" height="75vh" src="css/imgs/profile_pic2.jpg">
+                        <img class="files_sample" width="75vw" height="75vh" src="css/imgs/profile_pic3.jpg">
+                        <img class="files_sample" width="75vw" height="75vh" src="css/imgs/profile_pic6.jpg">
                     </div>
 
                 </div>
@@ -402,7 +404,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['message'])) {
 
 
 
-
+    
 
 
 

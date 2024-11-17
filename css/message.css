@@ -1,51 +1,51 @@
 @font-face {
     font-family: 'poppins';
-    src: url('Poppins-Regular.ttf');
+    src: url('fonts/Poppins-Regular.ttf');
 }
 
 @font-face {
     font-family: 'poppins_bold';
-    src: url('Poppins-Bold.ttf');
+    src: url('fonts/Poppins-Bold.ttf');
 }
 
 @font-face {
     font-family: 'poppins_light';
-    src: url('Poppins-Light.ttf');
+    src: url('fonts/Poppins-Light.ttf');
 }
 
 @font-face {
     font-family: 'sf_regular';
-    src: url('SFPRODISPLAYREGULAR.OTF');
+    src: url('fonts/SFPRODISPLAYREGULAR.OTF');
 }
 
 @font-face {
     font-family: 'sf_bold';
-    src: url('SFPRODISPLAYBOLD.OTF');
+    src: url('fonts/SFPRODISPLAYBOLD.OTF');
 }
 
 @font-face {
     font-family: 'sf_medium';
-    src: url('SFPRODISPLAYMEDIUM.OTF');
+    src: url('fonts/SFPRODISPLAYMEDIUM.OTF');
 }
 
 @font-face {
     font-family: 'sf_thin_italic';
-    src: url('SFPRODISPLAYTHINITALIC.OTF');
+    src: url('fonts/SFPRODISPLAYTHINITALIC.OTF');
 }
 
 @font-face {
     font-family: 'yantra';
-    src: url('Yantramanav-Regular.ttf');
+    src: url('fonts/Yantramanav-Regular.ttf');
 }
 
 @font-face {
     font-family: 'yantra_bold';
-    src: url('Yantramanav-Bold.ttf');
+    src: url('fonts/Yantramanav-Bold.ttf');
 }
 
 @font-face {
     font-family: 'yantra_light';
-    src: url('Yantramanav-Light.ttf');
+    src: url('fonts/Yantramanav-Light.ttf');
 }
 
 *{
@@ -67,7 +67,7 @@ html, body {
     height: 100%;
     border: 0;
     padding: 0;
-    background-color: #ebebeb;
+    background-color: #ffffff;
     overflow-y: auto;
     white-space: nowrap;
     -webkit-overflow-scrolling: touch; /* Enable smooth scrolling for mobile */
@@ -80,7 +80,7 @@ ion-icon {
 }
 
 /* php */
-#link_clickable {
+/* #link_clickable {
 
     color: #f0f0f0;
 }
@@ -88,7 +88,7 @@ ion-icon {
 #link_clickable:hover {
 
     color: #fff;
-}
+} */
 
 /* header */
 
@@ -753,7 +753,9 @@ ion-icon {
 
 .chatheads_user_img {
 
-    border-radius: 50px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
     margin-right: 10px;
 }
 
@@ -775,23 +777,29 @@ ion-icon {
     max-width: 70%;
     font-size: 0.7rem;
     white-space: nowrap;          /* Prevents text from wrapping to a new line */
+    word-break: break-all;
     overflow: hidden;             /* Hides the overflowed text */
     text-overflow: ellipsis;      /* Adds an ellipsis (…) for overflowed text */
     overflow-x: hidden;
+}
+
+.chatheads_last_message a {
+
+    color: #000;
 }
 
 /* chat_box */
 
 .chat_box_containner {
 
-    flex-grow: 1;
+    flex: 1;
     display: flex;
     height: 100%;
 }
 
 .chat_box {
 
-    flex-grow: 1;
+    flex: 1;
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -993,6 +1001,7 @@ ion-icon {
     white-space: normal;          /* Allow text to wrap onto the next line */
     text-overflow: ellipsis;      /* Adds ellipsis (...) for truncated text */
     overflow: hidden;
+    color: #ffffff;
 }
 
 /* send message group icons */
@@ -1020,13 +1029,22 @@ ion-icon {
     margin-right: 10px;
 }
 
-#message {
+.message_input_containner {
 
     flex-grow: 1;
     border-radius: 20px;
     padding: 10px;
     background: #00000015;
     font-size: 1rem;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+}
+
+#message {
+
+    background: none;
 }
 
 #send_text {

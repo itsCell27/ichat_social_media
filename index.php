@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/style.css">
     <script src="https://kit.fontawesome.com/fa0399c701.js" crossorigin="anonymous"></script>
 </head>
 <body>
@@ -26,7 +26,7 @@
             </div>
        </div>
        <form method="POST" action="home.php" class="login_page">
-                <img width="100px" height="100px" src="ichat_logo.png">
+                <img width="100px" height="100px" src="css/imgs/ichat_logo.png">
                 <h1 class="login_title">Login</h1>
 
                 <input name="email" id="email" class="email input_login" type="email" required  placeholder="email" autocapitalize="off">

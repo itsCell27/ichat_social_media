@@ -1,31 +1,51 @@
 @font-face {
     font-family: 'poppins';
-    src: url('Poppins-Regular.ttf');
+    src: url('fonts/Poppins-Regular.ttf');
 }
 
 @font-face {
     font-family: 'poppins_bold';
-    src: url('Poppins-Bold.ttf');
+    src: url('fonts/Poppins-Bold.ttf');
+}
+
+@font-face {
+    font-family: 'poppins_light';
+    src: url('fonts/Poppins-Light.ttf');
 }
 
 @font-face {
     font-family: 'sf_regular';
-    src: url('SFPRODISPLAYREGULAR.OTF');
+    src: url('fonts/SFPRODISPLAYREGULAR.OTF');
 }
 
 @font-face {
     font-family: 'sf_bold';
-    src: url('SFPRODISPLAYBOLD.OTF');
+    src: url('fonts/SFPRODISPLAYBOLD.OTF');
 }
 
 @font-face {
     font-family: 'sf_medium';
-    src: url('SFPRODISPLAYMEDIUM.OTF');
+    src: url('fonts/SFPRODISPLAYMEDIUM.OTF');
 }
 
 @font-face {
     font-family: 'sf_thin_italic';
-    src: url('SFPRODISPLAYTHINITALIC.OTF');
+    src: url('fonts/SFPRODISPLAYTHINITALIC.OTF');
+}
+
+@font-face {
+    font-family: 'yantra';
+    src: url('fonts/Yantramanav-Regular.ttf');
+}
+
+@font-face {
+    font-family: 'yantra_bold';
+    src: url('fonts/Yantramanav-Bold.ttf');
+}
+
+@font-face {
+    font-family: 'yantra_light';
+    src: url('fonts/Yantramanav-Light.ttf');
 }
 
 *{
@@ -66,7 +86,7 @@ main {
     align-items: center;
     width: 50%;
     height: 100%;
-    background-image: url('login_text_bg2.jpg');
+    background-image: url('imgs/login_text_bg2.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;

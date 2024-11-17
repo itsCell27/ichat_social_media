@@ -290,3 +290,20 @@ function toggleStory() {
     }
 }
 
+// show share tab
+function toggleShare() {
+
+    var share = document.querySelector('.share_tab_overlay');
+
+    if(share.classList.contains("show")) {
+
+        share.classList.remove("show");
+    } else {
+
+        share.classList.add("show");
+    }
+}
+
+
+
+
