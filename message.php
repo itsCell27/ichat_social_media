@@ -298,17 +298,66 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['message'])) {
 
                 </div>
 
-                <form class="send_message_group" action="" method="POST">
+                <form class="send_message_group" action="" method="POST" enctype="multipart/form-data">
                     
                     <!-- hidden input file -->
-                    <input type="file" id="uploadImage" name="uploadedImage" accept="image/*"/>
+                    <input type="file" id="uploadImage" name="uploadedImages[]" accept="image/*" multiple/>
 
                     <label id="send_img" for="uploadImage">
                         <ion-icon class="create_post_img_icon" name="images-outline"></ion-icon>
                     </label>
                     
                     <div class="message_input_containner">
+
+                        <!-- hidden -->
+                        <div class="message_img_preview_group">
+                            <label id="add_img" for="uploadImage">
+                                <svg class="add_svg" version="1.0" xmlns="http://www.w3.org/2000/svg"
+                                viewBox="0 0 512.000000 512.000000"
+                                preserveAspectRatio="xMidYMid meet">
+                                <g transform="translate(0.000000,512.000000) scale(0.100000,-0.100000)"
+                                fill="#000000" stroke="none">
+                                <path d="M1640 4621 c-80 -21 -164 -59 -225 -101 -96 -66 -214 -245 -245 -371
+                                -6 -25 -21 -115 -34 -200 l-21 -154 -165 -6 c-141 -5 -176 -10 -238 -32 -160
+                                -56 -296 -170 -369 -312 -79 -152 -74 -74 -74 -1309 0 -748 3 -1117 11 -1149
+                                41 -186 174 -354 345 -438 152 -74 54 -70 1506 -67 l1304 3 80 23 c242 67 399
+                                222 453 449 17 71 18 73 52 78 155 24 266 80 375 190 115 114 166 220 186 379
+                                5 45 71 518 146 1051 135 964 136 971 124 1061 -27 227 -128 387 -313 497
+                                -129 77 -57 65 -1933 327 -159 22 -383 54 -496 70 -238 35 -371 38 -469 11z
+                                m690 -365 c217 -31 508 -72 645 -92 1259 -176 1305 -183 1358 -207 125 -59
+                                173 -120 197 -255 10 -56 6 -94 -34 -380 -25 -174 -89 -625 -141 -1001 -59
+                                -422 -103 -707 -116 -743 -35 -106 -81 -162 -159 -197 -88 -40 -79 -143 -82
+                                937 l-3 957 -27 73 c-37 101 -82 173 -156 248 -73 74 -154 124 -261 162 l-76
+                                27 -1017 3 c-829 2 -1018 5 -1018 15 0 41 33 239 46 280 20 60 86 159 122 183
+                                15 10 52 26 82 36 81 26 183 19 640 -46z m1128 -813 c117 -40 179 -111 207
+                                -237 14 -63 15 -194 13 -1106 l-3 -1035 -24 -60 c-31 -79 -97 -145 -176 -176
+                                l-60 -24 -1240 -3 c-864 -2 -1259 0 -1304 8 -127 22 -211 84 -253 188 l-23 57
+                                0 1075 c0 1216 -5 1133 80 1228 50 56 116 88 203 101 31 5 611 8 1287 7 l1230
+                                -1 63 -22z"/>
+                                <path d="M2086 2820 c-41 -13 -94 -68 -106 -110 -5 -19 -10 -122 -10 -227 l0
+                                -193 -209 0 c-199 0 -209 -1 -241 -22 -48 -33 -72 -70 -77 -120 -7 -58 23
+                                -118 74 -149 36 -23 48 -24 245 -27 l207 -3 3 -207 c3 -197 4 -209 27 -245 31
+                                -51 91 -81 149 -74 50 5 87 29 120 77 21 32 22 42 22 241 l0 209 193 0 c105 0
+                                208 4 226 10 47 13 99 66 112 112 17 64 -17 148 -74 181 -15 8 -92 14 -237 17
+                                l-215 5 -5 217 c-6 246 -8 253 -90 296 -47 23 -67 26 -114 12z"/>
+                                </g>
+                                </svg>
+                            </label>
+                            <div id="imagePreviewContainer">
+
+                            </div>
+                            <!-- <div class="img_preview_wrap" >
+
+                                absolute -->
+                                <!-- <div class="img_close_wrap">
+                                    <ion-icon class="close_img_preview" name="close"></ion-icon>
+                                </div> -->
+                                
+                            <!-- </div> --> 
+                        </div>
+
                         <input type="text" id="message" name="message" required placeholder="Aa">
+
                     </div>
 
                     <button id="send_text" type="submit" value="Submit">

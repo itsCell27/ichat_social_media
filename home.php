@@ -256,7 +256,7 @@
                         </button>
                     </div>
 
-                    <div class="main_create_post">
+                    <form class="main_create_post">
 
                         <div class="upper_create_post">
                             <img id="create_post_user_img" src="css/imgs/profile_pic1.jpg">
@@ -287,10 +287,10 @@
 
                         </div>
 
-                        <button id="post_button">Post</button>
+                        <button id="post_button" onclick="closeCreateClose()">Post</button>
 
 
-                    </div>
+                    </form>
 
                 </div>
 
