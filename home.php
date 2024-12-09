@@ -66,11 +66,8 @@ function timeAgo($datetime) {
                 <input class="search_input_after" type="search" id="search" placeholder="Search" onkeyup="searchUser()">
             </div>
         </div>
-        <div class="search_suggestion">
-            <div class="search_bar_result">
-                <img class="search_result_img" src="css/imgs/profile_pic4.jpg">
-                <p class="search_result_name" id="result"></p>
-            </div>
+        <div class="search_suggestion" id="result">
+            <!-- the output is in search_handler.php -->
         </div>
     </div>
     <!-- sear_bar dropdown ending -->
@@ -89,7 +86,7 @@ function timeAgo($datetime) {
                     </span>
                 </button>
                 
-                <input class="search_input" type="search" placeholder="Search">
+                <p class="search_input">Search</p>
             </div>
 
         </div>
@@ -137,7 +134,7 @@ function timeAgo($datetime) {
 
                 <!-- hidden, only visible when hovering -->
                 <p class="notif_icon_name">Notifications</p>
-            </button>
+            </button>               
             <button class="profile_btn" onclick="toggleProfile()">
                 <img class="profile" width="40px" height="40px" src="<?php echo htmlspecialchars($user['profile_picture'] ?? 'default_profile_pic.jpg'); ?>">
 
@@ -256,8 +253,8 @@ function timeAgo($datetime) {
         <hr class="notif_line">
         <br>
         <div class="user_profile_wrapper" onclick="window.location.href='user_profile.php'">
-            <img class="user_profile_img" width="40px" height="40px" src="css/imgs/profile_pic1.jpg">
-            <p class="user_text_name">Name</p>
+            <img class="user_profile_img" width="40px" height="40px" src="<?php echo htmlspecialchars($user['profile_picture'] ?? 'default_profile_pic.jpg'); ?>">
+            <p class="user_text_name"><?php echo htmlspecialchars($user['username']) ?></p>
         </div>
         <br>
         <hr class="notif_line">

@@ -264,6 +264,8 @@ ion-icon {
     margin-left: 10px;
     width: 200px;
     background: none;
+    font-size: 0.8rem;
+    color: #00000095;
 }
 
 /* search_bar_dropdown */
@@ -907,6 +909,7 @@ ion-icon {
     display: flex;
 }
 
+/* saved_post_group */
 .saved_post_group {
 
     width: 20%;
@@ -919,7 +922,9 @@ ion-icon {
 
     font-size: 1.5rem;
 }
+/* saved_post_group ending */
 
+/* saved_post_content */
 .saved_post_content {
 
     flex: 1;
@@ -928,3 +933,10 @@ ion-icon {
     overflow-y: auto;
 }
 
+/* .post {
+
+    
+} */
+/* saved post content ending */
+
+/* main saved post ending */

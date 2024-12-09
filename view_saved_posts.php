@@ -6,6 +6,19 @@ session_start();
 // Get the logged-in user's ID from the session
 $current_user_id = $_SESSION['user_id'] ?? null;
 
+
+$sql = "SELECT * FROM users WHERE user_id = ?";
+if ($stmt = $conn->prepare($sql)) {
+    $stmt->bind_param("i", $current_user_id);
+    $stmt->execute();
+    $result = $stmt->get_result();
+    $user = $result->fetch_assoc();
+    $stmt->close();
+} else {
+    echo "<p>Database error: " . $conn->error . "</p>";
+    exit();
+}
+
 // Check if a user ID is provided in the URL (for viewing other users' saved posts)
 $user_id = isset($_GET['user_id']) ? intval($_GET['user_id']) : $current_user_id;
 
@@ -16,7 +29,7 @@ if (!$user_id) {
 }
 
 // Prepare the SQL query to fetch saved posts along with the counts for likes, comments, shares, and user info
-$sql = "
+$sqli = "
     SELECT p.*, u.username, u.user_id AS post_user_id, 
            (SELECT COUNT(*) FROM likes WHERE post_id = p.post_id) AS likes_count, 
            (SELECT COUNT(*) FROM comments WHERE post_id = p.post_id) AS comments_count, 
@@ -79,7 +92,7 @@ $sql = "
                     </span>
                 </button>
                 
-                <input class="search_input" type="search" placeholder="Search">
+                <p class="search_input">Search</p>
             </div>
 
         </div>
@@ -246,8 +259,8 @@ $sql = "
         <hr class="notif_line">
         <br>
         <div class="user_profile_wrapper" onclick="window.location.href='user_profile.php'">
-            <img class="user_profile_img" width="40px" height="40px" src="css/imgs/profile_pic1.jpg">
-            <p class="user_text_name">Name</p>
+            <img class="user_profile_img" width="40px" height="40px" src="<?php echo htmlspecialchars($user['profile_picture'] ?? 'default_profile_pic.jpg'); ?>">
+            <p class="user_text_name"><?php echo htmlspecialchars($user['username']) ?></p>
         </div>
         <br>
         <hr class="notif_line">
@@ -294,7 +307,7 @@ $sql = "
             <?php
 
                 // Prepare and execute the SQL statement
-                if ($stmt = $conn->prepare($sql)) {
+                if ($stmt = $conn->prepare($sqli)) {
                     // Bind the user ID parameter to the query
                     $stmt->bind_param("i", $user_id);
                     $stmt->execute();
@@ -322,12 +335,13 @@ $sql = "
                             
                             // Display image if available
                             if ($post['image_url']) {
-                                echo "<img src='" . htmlspecialchars($post['image_url']) . "' alt='Post Image' style='max-width: 100%;'/>";
+                                echo "<div class";
+                                echo "<img src='" . htmlspecialchars($post['image_url']) . "' alt='Post Image' />";
                             }
 
                             // Display video if available
                             if ($post['video_url']) {
-                                echo "<video controls src='" . htmlspecialchars($post['video_url']) . "' style='max-width: 100%;'></video>";
+                                echo "<video controls src='" . htmlspecialchars($post['video_url']) . "' ></video>";
                             }
 
                             // Likes, comments, shares

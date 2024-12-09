@@ -1,3 +1,4 @@
+<link rel="stylesheet" href="css/home.css">
 <?php
 // Include database connection
 require 'db.php';
@@ -12,7 +13,7 @@ if (isset($_GET['query'])) {
 
     // Prepare the SQL statement to search for users
     $sql = "SELECT * FROM users WHERE (username LIKE ? OR first_name LIKE ? OR last_name LIKE ?) AND user_id != ?";
-    
+
     if ($stmt = $conn->prepare($sql)) {
         // Bind parameters
         $search_param = '%' . $query . '%';
@@ -26,19 +27,19 @@ if (isset($_GET['query'])) {
 
         if ($result->num_rows > 0) {
             // Display the results
-            echo "<ul>";
+            echo "<div class='search_suggestion'>";
             while ($user = $result->fetch_assoc()) {
                 $user_id = $user['user_id'];
-                echo "<li>";
+                echo "<div class='search_bar_result'>";
                 // Display clickable user names that lead to their user profile
-                echo "<a href='user_profile.php?id=" . urlencode($user_id) . "'>";
+                echo "<a class='result_username_text' href='user_profile.php?id=" . urlencode($user_id) . "'>";
                 echo htmlspecialchars($user['first_name'] . " " . $user['last_name']) . " (@" . htmlspecialchars($user['username']) . ")";
                 echo "</a>";
-                echo "</li>";
+                echo "</div>";
             }
-            echo "</ul>";
+            echo "</div>";
         } else {
-            echo "<li>No users found matching your search.</li>";
+            echo "<p>No users found matching your search.</p>";
         }
 
         // Close the statement
@@ -48,5 +49,3 @@ if (isset($_GET['query'])) {
     echo "<p>No search query provided.</p>";
 }
 ?>
-
-
