@@ -73,33 +73,7 @@ html, body {
     -webkit-overflow-scrolling: touch; /* Enable smooth scrolling for mobile */
 }
 
-/* media queries */
-@media (max-width: 1018px) {
 
-    .search_input {
-
-        display: none;
-    }
-
-}
-
-@media (max-width: 810px) {
-
-    .saved_post_group {
-
-        display: none;
-    }
-
-    .middle_icons {
-
-        display: none;
-    }
-
-    .menu_btn {
-
-        display: flex;
-    }
-}
 
 ion-icon {
 
@@ -381,7 +355,7 @@ ion-icon {
 
     position: relative;
     margin-right: 20px;
-    display: flex;
+    display: none;
     justify-content: center;
     align-items: center;
     height: fit-content;
@@ -940,3 +914,32 @@ ion-icon {
 /* saved post content ending */
 
 /* main saved post ending */
+
+
+/* media queries */
+@media (max-width: 1018px) {
+
+    .search_input {
+
+        display: none;
+    }
+
+}
+
+@media (max-width: 810px) {
+
+    .saved_post_group {
+
+        display: none;
+    }
+
+    .middle_icons {
+
+        display: none;
+    }
+
+    .menu_btn {
+
+        display: flex;
+    }
+}

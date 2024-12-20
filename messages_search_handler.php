@@ -33,12 +33,12 @@ if (isset($_POST['search_term'])) {
         // Iterate through the search results and generate a clickable list
         while ($user = $result->fetch_assoc()) {
             $profilePic = htmlspecialchars($user['profile_picture']) ? $user['profile_picture'] : 'default-avatar.jpg';
-            $response .= "<li class='conversation-item' data-user-id='{$user['user_id']}'>
-                            <a href='#'>
-                                <img class='search-result-img' src='$profilePic' alt='{$user['username']}' />
+            $response .= "<div class='conversation-item' data-user-id='{$user['user_id']}'>
+                            <a href='#' id='conversation-item'>
+                                <img class='search-result-img' src='$profilePic' alt='{$user['username']}' onerror=\"this.src='default_pic.png';\"/>
                                 <span class='username'>" . htmlspecialchars($user['username']) . "</span>
                             </a>
-                          </li>";
+                          </div>";
         }
     } else {
         // If no results found, return a message

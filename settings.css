@@ -1,0 +1,115 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    height: 100vh;
+    color: #333;
+}
+
+ion-icon {
+    font-size: 32px;
+}
+
+.sidebar {
+    width: 25%;
+    background-color: #f9f9f9;
+    padding: 20px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.sidebar a {
+    text-decoration: none;
+    color: #333;
+    display: flex;
+    align-items: center;
+    margin: 15px 0;
+    font-size: 16px;
+}
+
+.sidebar a:hover {
+    color: #007BFF;
+}
+
+.sidebar a img {
+    margin-right: 10px;
+}
+
+.content {
+    flex-grow: 1;
+    padding: 40px;
+}
+
+.content h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.back-button {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: #333;
+    margin-bottom: 20px;
+    font-size: 16px;
+}
+
+.back-button:hover {
+    color: #007BFF;
+}
+
+.back-button img {
+    margin-right: 8px;
+}
+
+.error-message {
+    color: red;
+    margin-bottom: 20px;
+}
+
+.success-message {
+    color: green;
+    margin-bottom: 20px;
+}
+
+.confirmation-dialog {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    border: 1px solid #ccc;
+    padding: 20px;
+    z-index: 1000;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+}
+
+/* Button to trigger the confirmation dialog */
+.delete-account-btn {
+    border-radius: 10px;
+    text-align: left;
+    width: 80%;
+    display: block;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+}

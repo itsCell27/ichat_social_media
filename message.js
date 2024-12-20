@@ -1,7 +1,61 @@
-// profile dropdown button
-function toggleProfile() {
+// navbar start
+
+// search engine
+function searchUser() {
+  var searchText = $("#search").val();
+  if (searchText.length > 0) {
+      $.ajax({
+          url: 'search_handler.php',
+          type: 'GET',
+          data: { query: searchText },
+          success: function(data) {
+              $("#result").html(data);
+          }
+      });
+  } else {
+      $("#result").html('');  // Clear the result if the search box is empty
+  }
+}
+
+// search bar 
+function toggleSearch() {
+
+  var searchBarDropdown = document.getElementById("searchBarDropdown");
   var profileDropdown = document.getElementById("profileDropdown");
   var notifDropdown = document.getElementById("notifDropdown");
+  var menuDropdown = document.getElementById("menuDropdown");
+
+  // Toggle the search dropdown visibility
+  searchBarDropdown.classList.toggle("show");
+
+  // Close the notification dropdown if it's open
+  if (notifDropdown.classList.contains("show")) {
+    notifDropdown.classList.remove("show");
+  }
+
+  // Close the menu dropdown if it's open
+  if(menuDropdown.classList.contains("show")) {
+    menuDropdown.classList.remove("show");
+  }
+
+  // Close the profile dropdown if it's open
+  if (profileDropdown.classList.contains("show")) {
+    profileDropdown.classList.remove("show");
+  }
+
+  // Close all open option boxes
+  document.querySelectorAll(".option_box").forEach((optionBox) => {
+    optionBox.classList.remove("show");
+  });
+}
+
+// profile dropdown button
+function toggleProfile() {
+
+  var searchBarDropdown = document.getElementById("searchBarDropdown");
+  var profileDropdown = document.getElementById("profileDropdown");
+  var notifDropdown = document.getElementById("notifDropdown");
+  var menuDropdown = document.getElementById("menuDropdown");
 
   // Toggle the profile dropdown visibility
   profileDropdown.classList.toggle("show");
@@ -9,6 +63,16 @@ function toggleProfile() {
   // Close the notification dropdown if it's open
   if (notifDropdown.classList.contains("show")) {
     notifDropdown.classList.remove("show");
+  }
+
+  // Close the menu dropdown if it's open
+  if(menuDropdown.classList.contains("show")) {
+    menuDropdown.classList.remove("show");
+  }
+
+  // Close the search dropdown if it's open
+  if(searchBarDropdown.classList.contains("show")) {
+    searchBarDropdown.classList.remove("show");
   }
 
   // Close all open option boxes
@@ -21,6 +85,7 @@ function toggleProfile() {
 function toggleNotifications() {
   var profileDropdown = document.getElementById("profileDropdown");
   var notifDropdown = document.getElementById("notifDropdown");
+  var menuDropdown = document.getElementById("menuDropdown");
 
   // Toggle the notification dropdown visibility
   notifDropdown.classList.toggle("show");
@@ -30,11 +95,53 @@ function toggleNotifications() {
     profileDropdown.classList.remove("show");
   }
 
+  // Close the menu dropdown if it's open
+  if(menuDropdown.classList.contains("show")) {
+    menuDropdown.classList.remove("show");
+  }
+
+  // Close the search dropdown if it's open
+  if(searchBarDropdown.classList.contains("show")) {
+    searchBarDropdown.classList.remove("show");
+  }
+
   // Close all open option boxes
   document.querySelectorAll(".option_box").forEach((optionBox) => {
     optionBox.classList.remove("show");
   });
 }
+
+// menu dropdown button
+function toggleMenu() {
+  var profileDropdown = document.getElementById("profileDropdown");
+  var notifDropdown = document.getElementById("notifDropdown");
+  var menuDropdown = document.getElementById("menuDropdown");
+
+  // Toggle the profile dropdown visibility
+  menuDropdown.classList.toggle("show");
+
+  // Close the notification dropdown if it's open
+  if (notifDropdown.classList.contains("show")) {
+    notifDropdown.classList.remove("show");
+  }
+
+  // Close the profile dropdown if it's open
+  if (profileDropdown.classList.contains("show")) {
+    profileDropdown.classList.remove("show");
+  }
+
+  // Close the search dropdown if it's open
+  if(searchBarDropdown.classList.contains("show")) {
+    searchBarDropdown.classList.remove("show");
+  }
+
+  // Close all open option boxes
+  document.querySelectorAll(".option_box").forEach((optionBox) => {
+    optionBox.classList.remove("show");
+  });
+}
+
+//   navbar ending
 
 // message option dropdown
 function toggleOption() {
@@ -74,43 +181,68 @@ function slideOut() {
   box2.classList.remove("active"); // Removes the class to slide out Box 2
 }
 
-$(document).ready(function () {
-  // Handle typing in the search input field
-  $('#searchInput').on('input', function () {
-      const searchTerm = $(this).val();
-      if (searchTerm.length > 0) {
-          $.ajax({
-              url: 'messages_search_handler.php',
-              method: 'POST',
-              data: { search_term: searchTerm },
-              success: function (response) {
-                  $('#results').html(response);
-              }
-          });
-      } else {
-          $('#results').empty();
-      }
-  });
 
-  // Event listener for the clickable search results
-  $(document).on('click', '.conversation-item', function (e) {
-      e.preventDefault();
-      const userId = $(this).data('user-id');
+// img upload preview
+document.getElementById("uploadImage").addEventListener("change", function () {
+  const previewContainer = document.getElementById("imagePreviewContainer");
+  const previewGroup = document.querySelector(".message_img_preview_group");
 
-      // Load the conversation for the clicked user
-      loadConversation(userId);
-  });
-
-  function loadConversation(userId) {
-      // Use AJAX to load the messages with the selected user
-      $.ajax({
-          url: 'messages_load.php', // The page that will load the conversation
-          method: 'GET',
-          data: { user2_id: userId },
-          success: function (response) {
-              // Insert the loaded conversation into the conversation container
-              $('#conversation-container').html(response).show();
-          }
-      });
+  const files = Array.from(this.files); // Get all files
+  if (files.length > 0) {
+    previewGroup.classList.add("show"); // Show the container
   }
+
+  // Clear previous previews to only show one image
+  previewContainer.innerHTML = "";
+
+  const file = files[0]; // Take only the first file
+  if (file.type.startsWith("image/")) {
+    const reader = new FileReader();
+
+    reader.onload = function (e) {
+      // Create a new div for this image
+      const imgWrap = document.createElement("div");
+      imgWrap.classList.add("img_preview_wrap");
+
+      // Create the image element
+      const imgElement = document.createElement("img");
+      imgElement.classList.add("message_img_preview");
+      imgElement.src = e.target.result;
+      imgElement.alt = "Preview";
+      imgElement.style.borderRadius = "10px";
+
+      // Create the close button
+      const closeWrap = document.createElement("div");
+      closeWrap.classList.add("img_close_wrap");
+      closeWrap.innerHTML = `<ion-icon class="close_img_preview" name="close"></ion-icon>`;
+      closeWrap.addEventListener("click", () => {
+        imgWrap.remove(); // Remove this specific image preview
+        previewGroup.classList.remove("show"); // Hide the container
+      });
+
+      // Append the elements
+      imgWrap.appendChild(imgElement);
+      imgWrap.appendChild(closeWrap);
+      previewContainer.appendChild(imgWrap); // Add to the preview container
+    };
+
+    reader.readAsDataURL(file); // Convert the file to a data URL
+  }
+
+  // Clear the file input so new uploads don't include previous files
+  this.value = "";
 });
+
+// Initially hide the preview group
+document.querySelector(".message_img_preview_group").classList.remove("show");
+
+
+
+
+
+const messageElement = document.getElementById('chatMessage');
+const maxLength = 20; // Maximum word length allowed
+
+if (messageElement.textContent.length > maxLength) {
+  messageElement.textContent = 'sent a message...';
+}

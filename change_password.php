@@ -60,14 +60,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 }
 ?>
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Change Password</title>
-</head>
-<body>
+<h1>Change password</h1>
 
 <!-- Display success or error message -->
 <?php if (isset($success_message)): ?>
@@ -77,18 +70,24 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <?php endif; ?>
 
 <!-- Password Change Form -->
-<form action="change_password.php" method="POST">
-    <label for="current_password">Old Password:</label>
-    <input type="password" name="current_password" required><br><br>
+<form method="POST" action="change_password.php">
+            <div class="form-group">
+                <label for="current_password">Current Password</label>
+                <input type="password" id="current_password" name="current_password" placeholder="Enter your current password">
+            </div>
 
-    <label for="new_password">New Password:</label>
-    <input type="password" name="new_password" required><br><br>
+            <div class="form-group">
+                <label for="new_password">New Password</label>
+                <input type="password" id="new_password" name="new_password" placeholder="Enter your new password">
+            </div>
 
-    <label for="confirm_password">Confirm New Password:</label>
-    <input type="password" name="confirm_password" required><br><br>
+            <div class="form-group">
+                <label for="confirm_password">Confirm Password</label>
+                <input type="password" id="confirm_password" name="confirm_password" placeholder="Confirm your new password">
+            </div>
 
-    <button type="submit">Change Password</button>
-</form>
+            <div class="form-group">
+                <button type="submit">Change Password</button>
+            </div>
+        </form>
 
-</body>
-</html>

@@ -48,6 +48,7 @@
     src: url('fonts/Yantramanav-Light.ttf');
 }
 
+
 *{
 
     font-family: 'sf_regular', sans-serif;
@@ -111,14 +112,16 @@ main {
 
 .text_easy {
 
-    font-size: 3.5rem;
+    font-size: 0.5rem;
+    font-size: clamp(0.5rem, -0.1923076923076923rem + 3.692307692307692vw, 3.5rem);
     font-family: 'sf_bold';
     color: #FFF;
 }
 
 .text_stay {
 
-    font-size: 3.4rem;
+    font-size: 0.5rem;
+    font-size: clamp(0.5rem, -0.16923076923076918rem + 3.569230769230769vw, 3.4rem);
     font-family: 'sf_bold';
     margin-bottom: 30px;
 }
@@ -141,6 +144,8 @@ main {
 
 .login_title{
 
+    font-size: 1rem;
+    font-size: clamp(1rem, 0.6296296296296297rem + 1.9753086419753085vw, 3rem);
     font-family: 'sf_bold';
     margin: 20px;
 }
@@ -207,7 +212,7 @@ main {
 
     display: flex;
     width: 340px;
-    justify-content: flex-start;
+    justify-content: center;
 }
 
 .have_acc {
@@ -301,4 +306,49 @@ main {
 .google_btn:hover .google-icon {
     filter: brightness(1); /* Change filter on hover */
 }
+
+/* index footet */
+.index_footer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #0000008a;
+}
+
+/* responsive */
+@media all and (max-width: 1200px) {
+    
+    .text_page {
+        display: none;
+    }
+
+    .login_page {
+        width: 90%;
+    }
+
+}
+
+@media all and (max-width: 500px) {
+    
+    .input_login {
+
+        width: 200px;
+    }
+
+    .div_forgot {
+        width: 200px;
+    }
+}
+
+@media all and (max-width: 375px) {
+
+    .input_login {
+
+        width: 150px;
+        font-size: 0.8rem;
+    }
+}
+
   

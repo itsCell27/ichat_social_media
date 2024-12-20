@@ -37,8 +37,7 @@ $loggedInUserId = $_SESSION['user_id'];
         <label>Upload Image:</label>
         <input type="file" name="image" accept="image/*"><br>
         
-        <label>Upload Video:</label>
-        <input type="file" name="video" accept="video/*"><br>
+        
         <select name="privacy">
             <option value="public">Public</option>
             <option value="friends">Friends</option>

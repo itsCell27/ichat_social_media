@@ -61,7 +61,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         if ($is_registered === true) {
             // Registration successful, redirect to login page
-            header("Location: login.php");
+            header("Location: index.php");
             exit();
         } else {
             // Store the error message in the session
@@ -125,7 +125,7 @@ if (isset($_SESSION['email_error'])) {
             
             <div class="sign_in">
                 <p class="have_acc">Have an account?</p>
-                <a class="text_hover" href="login.php">Sign in</a>
+                <a class="text_hover" href="index.php">Sign in</a>
             </div>
        </form>
 

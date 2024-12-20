@@ -144,6 +144,7 @@ function toggleProfile() {
 //   navbar ending
 
 
+
 // for multiple heart onclick
 document.addEventListener("DOMContentLoaded", function() {
     document.querySelectorAll(".post_icon_btn_heart").forEach(function(button) {
@@ -322,8 +323,3 @@ function followBtn(button) {
 }
 
 
-// Toggle the notification dropdown visibility
-function toggleNotifications() {
-    var dropdown = document.getElementById("notifDropdown");
-    dropdown.classList.toggle("show");
-}

@@ -55,38 +55,74 @@ if ($result->num_rows > 0) {
     $messages = $result->fetch_all(MYSQLI_ASSOC);
 }
 
+date_default_timezone_set("Asia/Manila");
+function timeAgo($datetime) {
+    $now = new DateTime();
+    $createdAt = new DateTime($datetime);
+    $interval = $now->diff($createdAt);
+
+    if ($interval->y > 0) return $interval->y . ' yr' . ($interval->y > 1 ? 's' : '') . ' ago';
+    if ($interval->m > 0) return $interval->m . ' mo' . ($interval->m > 1 ? 's' : '') . ' ago';
+    if ($interval->d > 0) return $interval->d . ' day' . ($interval->d > 1 ? 's' : '') . ' ago';
+    if ($interval->h > 0) return $interval->h . ' hr' . ($interval->h > 1 ? 's' : '') . ' ago';
+    if ($interval->i > 0) return $interval->i . ' min' . ($interval->i > 1 ? 's' : '') . ' ago';
+    return 'Just now';
+}
+
 ?>
 
-
-
-<h3><?php echo htmlspecialchars($username2); ?></h3>
-
-<div id="messages-container">
-    <?php foreach ($messages as $message): ?>
-        <div style="display: flex; <?php echo ($message['sender_id'] == $loggedInUserId) ? 'justify-content: flex-end;' : 'justify-content: flex-start;'; ?> margin-bottom: 10px;">
-            <?php if ($message['sender_id'] != $loggedInUserId): ?>
-                <div style="margin-right: 10px;">
-                    <?php if ($message['profile_picture']): ?>
-                        <img src="<?php echo htmlspecialchars($message['profile_picture']); ?>" alt="Profile Picture" style="width: 30px; height: 30px; border-radius: 50%;">
-                    <?php else: ?>
-                        <img src="default-profile.png" alt="Default Profile Picture" style="width: 30px; height: 30px; border-radius: 50%;">
-                    <?php endif; ?>
-                </div>
-            <?php endif; ?>
-
-            <div style="max-width: 70%; background-color: <?php echo ($message['sender_id'] == $loggedInUserId) ? '#d1e7ff' : '#f0f0f0'; ?>; border-radius: 10px; padding: 8px;">
-                <strong><?php echo htmlspecialchars($message['username']); ?>:</strong>
-                <p style="margin: 0;"><?php echo htmlspecialchars($message['message']); ?></p>
-                <em style="font-size: 0.8em; color: #888;"><?php echo $message['created_at']; ?></em>
-            </div>
-        </div>
-    <?php endforeach; ?>
+<div class="chat_box_navbar">
+    <div class="chat_box_img_status">
+        <img id="user_img_status" width="40px" height="40px" src="<?php echo $profilePicture2; ?>" alt="Profile Picture" onerror="this.src='default_pic.png';">
+        <ion-icon id="user_status_icon" name="ellipse"></ion-icon>
+    </div>
+    
+    <div class="chat_box_text_group">
+        <p class="chat_box_user_name"><?php echo htmlspecialchars($username2); ?></p>
+        <!-- <p class="chat_box_status_text">Active now</p> -->
+    </div>
+    
+    <ion-icon class="chat_box_nav_option" name="ellipsis-horizontal-outline" onclick="toggleOption()"></ion-icon>
 </div>
 
-<form id="message-form">
-    <input type="hidden" name="user2_id" value="<?php echo $user2Id; ?>">
-    <textarea name="message" placeholder="Type a message..." required></textarea>
-    <button type="submit">Send</button>
+
+<div class="chat_box_conversation">
+
+    <div id="messages-container">
+        <?php foreach ($messages as $message): ?>
+            <div style="display: flex; <?php echo ($message['sender_id'] == $loggedInUserId) ? 'justify-content: flex-end;' : 'justify-content: flex-start;'; ?> margin-bottom: 10px;">
+                <?php if ($message['sender_id'] != $loggedInUserId): ?>
+                    <div style="margin-right: 10px;">
+                        <?php if ($message['profile_picture']): ?>
+                            <img src="<?php echo htmlspecialchars($message['profile_picture']); ?>" alt="Profile Picture" onerror="this.src='default_pic.png';" style="width: 30px; height: 30px; border-radius: 50%;">
+                        <?php else: ?>
+                            <img src="css/imgs/default_pic.png" alt="Default Profile Picture" onerror="this.src='default_pic.png';" style="width: 30px; height: 30px; border-radius: 50%;">
+                        <?php endif; ?>
+                    </div>
+                <?php endif; ?>
+
+                <div style="max-width: 70%; background: <?php echo ($message['sender_id'] == $loggedInUserId) ? 'linear-gradient(90deg, #595bf1 0%, rgb(148, 134, 241) 100%)' : '#f0f0f0'; ?>; border-radius: 10px; padding: 10px; color: <?php echo ($message['sender_id'] == $loggedInUserId) ? '#fff' : '#000' ?>">
+                    <!-- <strong><?php //echo htmlspecialchars($message['username']); ?>:</strong> -->
+                    <p style="margin: 0;" class="your_message_a"><?php echo htmlspecialchars($message['message']); ?></p>
+                    <em style="font-size: 0.8em; color: <?php echo ($message['sender_id'] == $loggedInUserId) ? '#ffffff82' : '#888'; ?>;"><?php echo timeAgo($message['created_at']); ?></em>
+                </div>
+            </div>
+        <?php endforeach; ?>
+    </div>
+
+    <div class="conversation_partner_profile">
+        <img id="partner_img" width="100px" height="100px" src="<?php echo $profilePicture2; ?>" alt="Profile Picture" onerror="this.src='default_pic.png';">
+        <p id="partner_name"><?php echo htmlspecialchars($username2); ?></p>
+    </div>
+
+</div>
+
+<form id="message-form" class="send_message_group">
+        <input type="hidden" name="user2_id" value="<?php echo $user2Id; ?>">
+        <textarea class="message_input_containner" name="message" placeholder="Aa" required></textarea>
+        <button type="submit" id="send_text">
+            <ion-icon name="paper-plane"></ion-icon>
+        </button>
 </form>
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -113,8 +149,8 @@ $(document).ready(function() {
                     // Append the new message to the message container
                     var newMessage = `
                         <div style="display: flex; justify-content: flex-end; margin-bottom: 10px;">
-                            <div style="max-width: 70%; background-color: #d1e7ff; border-radius: 10px; padding: 8px;">
-                                <strong>${response.username}:</strong>
+                            <div style="max-width: 70%; background-color: #d1e7ff; border-radius: 10px; padding: 10px;">
+                                <!-- <strong>$//{response.username}:</strong> -->
                                 <p style="margin: 0;">${response.message}</p>
                                 <em style="font-size: 0.8em; color: #888;">${response.created_at}</em>
                             </div>

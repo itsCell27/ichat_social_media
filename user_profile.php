@@ -14,9 +14,19 @@ if (isset($_GET['id'])) {
     // If no ID is provided, use the current user's ID
     $user_id = $current_user_id;
 }
-
-// Prepare the SQL statement to retrieve the user's information
-$sql = "SELECT * FROM users WHERE user_id = ?";
+?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instagram Profile</title>
+    <link rel="stylesheet" href="user_profile.css">
+</head>
+<body>
+    
+<?php
+        $sql = "SELECT * FROM users WHERE user_id = ?";
 
 if ($stmt = $conn->prepare($sql)) {
     // Bind the user_id parameter
@@ -31,21 +41,6 @@ if ($stmt = $conn->prepare($sql)) {
         // Fetch user data
         $user = $result->fetch_assoc();
 
-        // Display user details
-        echo "<h1>User Profile</h1>";
-        echo "<p><strong>Username:</strong> " . htmlspecialchars($user['username']) . "</p>";
-        
-        // Check if the logged-in user is viewing their own profile
-        if ($current_user_id === $user_id) {
-            echo "<a href='edit_profile.php'>Edit Profile</a>"; // Display 'Edit Profile' if it's the current user's profile
-        }
-
-        echo "<p><strong>First Name:</strong> " . htmlspecialchars($user['first_name']) . "</p>";
-        echo "<p><strong>Last Name:</strong> " . htmlspecialchars($user['last_name']) . "</p>";
-        echo "<p><strong>Email:</strong> " . htmlspecialchars($user['email']) . "</p>";
-        echo "<p><strong>Account Created On:</strong> " . htmlspecialchars($user['created_at']) . "</p>";
-
-        // Fetch followers count
         $followers_count_sql = "SELECT COUNT(*) as count FROM following WHERE followed_id = ?";
         $followers_stmt = $conn->prepare($followers_count_sql);
         $followers_stmt->bind_param("i", $user_id);
@@ -60,68 +55,68 @@ if ($stmt = $conn->prepare($sql)) {
         $following_stmt->execute();
         $following_result = $following_stmt->get_result();
         $following_count = $following_result->fetch_assoc()['count'];
-
-        // Display followers and following counts
-        echo "<p><strong>Followers:</strong> " . htmlspecialchars($followers_count) . "</p>";
-
-        // Only show the following count as clickable if it's the current user's profile
-        if ($current_user_id === $user_id) {
-            echo "<p><strong>Following:</strong> <a href='#' id='following-count' data-userid='" . htmlspecialchars($current_user_id) . "'>" . htmlspecialchars($following_count) . "</a></p>";
-        } else {
-            // Show the following count but without the link if it's someone else's profile
-            echo "<p><strong>Following:</strong> " . htmlspecialchars($following_count) . "</p>";
-        }
-
-        // Only show follow/unfollow buttons if the logged-in user is not viewing their own profile
-        if ($current_user_id !== $user_id) {
-            // Check if the current user is following the user being viewed
-            $is_following = false;
-            $check_following_sql = "SELECT * FROM following WHERE following_id = ? AND followed_id = ?";
-            if ($check_following_stmt = $conn->prepare($check_following_sql)) {
-                $check_following_stmt->bind_param("ii", $current_user_id, $user_id);
-                $check_following_stmt->execute();
-                $check_following_result = $check_following_stmt->get_result();
-                $is_following = $check_following_result->num_rows > 0;
-                $check_following_stmt->close();
-            }
-
-            // Conditional button rendering
-            if ($is_following) {
-                echo "<button id='unfollow-btn' data-userid='" . htmlspecialchars($user_id) . "'>Unfollow</button>";
-            } else {
-                echo "<button id='follow-btn' data-userid='" . htmlspecialchars($user_id) . "'>Follow</button>";
-            }
-        }
-
-        echo "<button id='show-posts-btn'>Show Posts</button>";
-        echo "<div id='posts-container' style='display:none; max-height: 300px; overflow-y: auto;'></div>";
-
-        echo "<button id='show-saved-posts-btn'>Show Saved Posts</button>";
-        echo "<div id='saved-posts-container' style='display:none; max-height: 300px; overflow-y: auto;'></div>";
-
-    } else {
-        echo "<p>User not found.</p>";
-    }
-
-    // Close the statement
+        echo '
+        <div class="profile-info-container">
+            <div class="profile-info">
+                <div class="profile-picture">
+                    <img src="'.htmlspecialchars($user['profile_picture']).'" alt="Profile Picture">
+                </div>
+                <div class="profile-details">
+                    <div class="username-buttons">
+                        <h2>'. htmlspecialchars($user['username']) .'</h2>';
+                        if ($user_id == $current_user_id) {
+                            echo '<a href="edit_profile.php"><button class="edit-profile-button">Edit Profile</button></a>
+                                  <button class="archive-button">Archive</button>';
+                        }
+                        echo '
+                    </div>
+                    <div class="post-followers">
+                        <div class="followers">
+                            <p>'. htmlspecialchars($followers_count) .' followers</p>
+                          
+                        </div>
+                        <div class="following">
+                            <p>'. htmlspecialchars($following_count) .' following</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>';
+echo '
+        <div class="bottom-buttons-container">
+    <div class="bottom-buttons-wrapper">
+        <div class="bottom-buttons">
+            <button id="show-posts-btn" class="bottom-button" >Posts</button>
+            
+            <button id="show-saved-posts-btn" class="bottom-button" >Saved</button>
+            
+            <button  id="show-tagged-posts-btn" class="bottom-button" >Tagged</button>
+            
+        </div>
+    </div>
+</div>
+    </div>
+    <div id="posts-container" style="display: none;"></div>
+<div id="saved-posts-container" style="display: none;"></div>
+<div id="tagged-posts-container" style="display: none;"></div>';
     $stmt->close();
-} else {
-    echo "<p>Error preparing statement.</p>";
+      } else {
+          echo "<p>Error preparing statement.</p>";
+      }
+    }
+?>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+     
+function hideAllContainers() {
+    $('#posts-container').hide();
+    $('#saved-posts-container').hide();
+    $('#tagged-posts-container').hide();
 }
 
-// Navigation Buttons
-echo "<br><a href='search.php'>Search Users</a> | ";
-echo "<a href='home.php'>Back to Home</a> | ";
-echo "<a href='logout.php'>Logout</a>";
-?>
-
-<!-- Hidden container to display following users list -->
-<div id="following-list-container" style="display:none; max-height: 300px; overflow-y: auto;"></div>
-
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script src="user_profile.js"></script>
-<script>
+// Click event for posts button
 $(document).on('click', '#show-posts-btn', function() {
+    hideAllContainers(); // Hide all other containers
     const userId = <?php echo json_encode($user_id); ?>;
     $.get('fetch_user_posts.php', { user_id: userId }, function(response) {
         const result = JSON.parse(response);
@@ -129,11 +124,11 @@ $(document).on('click', '#show-posts-btn', function() {
             $('#posts-container').html(result.posts.map(post => 
                 `<div class='post'>
                     <p>${post.content}</p>
-                    ${post.image_url ? `<img src='${post.image_url}' alt='Post Image' style='max-width: 100%;'/>` : ''}
-                    ${post.video_url ? `<video controls src='${post.video_url}' style='max-width: 100%;'></video>` : ''}
+                    ${post.image_url ? <img src='${post.image_url}' alt='Post Image' style='max-width: 100%;'/> : ''}
+                    ${post.video_url ? <video controls src='${post.video_url}' style='max-width: 100%;'></video> : ''}
                     <p><strong>Likes:</strong> ${post.likes_count} | <strong>Comments:</strong> ${post.comments_count} | <strong>Shares:</strong> ${post.shares_count}</p>
                 </div>`).join(''));
-            $('#posts-container').toggle();
+            $('#posts-container').show(); // Show the posts container
         } else {
             alert(result.message);
         }
@@ -142,21 +137,22 @@ $(document).on('click', '#show-posts-btn', function() {
     });
 });
 
+// Click event for saved posts button
 $(document).on('click', '#show-saved-posts-btn', function() {
+    hideAllContainers(); // Hide all other containers
     const userId = <?php echo json_encode($user_id); ?>;
-
     $.get('saved_fetch.php', { user_id: userId }, function(response) {
         const result = JSON.parse(response);
         if (result.status === "success") {
             const postsHtml = result.posts.map(post => 
                 `<div class='post'>
                     <p>${post.content}</p>
-                    ${post.image_url ? `<img src='${post.image_url}' alt='Post Image' style='max-width: 100%;'/>` : ''}
-                    ${post.video_url ? `<video controls src='${post.video_url}' style='max-width: 100%;'></video>` : ''}
+                    ${post.image_url ? <img src='${post.image_url}' alt='Post Image' style='max-width: 100%;'/> : ''}
+                    ${post.video_url ? <video controls src='${post.video_url}' style='max-width: 100%;'></video> : ''}
                     <p><strong>Likes:</strong> ${post.likes_count} | <strong>Comments:</strong> ${post.comments_count} | <strong>Shares:</strong> ${post.shares_count}</p>
                 </div>`).join('');
             $('#saved-posts-container').html(postsHtml);
-            $('#saved-posts-container').toggle();
+            $('#saved-posts-container').show(); // Show the saved posts container
         } else {
             alert(result.message || "An error occurred while fetching saved posts.");
         }
@@ -165,25 +161,30 @@ $(document).on('click', '#show-saved-posts-btn', function() {
     });
 });
 
-// Click event for following count
-$(document).on('click', '#following-count', function(e) {
-    e.preventDefault(); // Prevent default link behavior
-
-    const userId = $(this).data('userid'); // Get logged-in user ID
-    $.get('fetch_user_following.php', { user_id: userId }, function(response) {
+// Click event for tagged posts button
+$(document).on('click', '#show-tagged-posts-btn', function() {
+    hideAllContainers(); // Hide all other containers
+    const userId = <?php echo json_encode($user_id); ?>;
+    $.get('fetch_tagged_posts.php', { user_id: userId }, function(response) {
         const result = JSON.parse(response);
         if (result.status === "success") {
-            const followingHtml = result.following.map(user => 
-                `<div class="user">
-                    <p>${user.username}</p>
+            const postsHtml = result.posts.map(post => 
+                `<div class='post'>
+                    <p>${post.content}</p>
+                    ${post.image_url ? <img src='${post.image_url}' alt='Post Image' style='max-width: 100%;'/> : ''}
+                    ${post.video_url ? <video controls src='${post.video_url}' style='max-width: 100%;'></video> : ''}
+                    <p><strong>Likes:</strong> ${post.likes_count} | <strong>Comments:</strong> ${post.comments_count} | <strong>Shares:</strong> ${post.shares_count}</p>
                 </div>`).join('');
-            $('#following-list-container').html(followingHtml);
-            $('#following-list-container').toggle(); // Show the following list container
+            $('#tagged-posts-container').html(postsHtml);
+            $('#tagged-posts-container').show(); // Show the tagged posts container
         } else {
-            alert(result.message || "Error fetching following list.");
+            alert(result.message || "An error occurred while fetching tagged posts.");
         }
     }).fail(function() {
-        alert("An error occurred while fetching the following list.");
+        alert("An error occurred while fetching tagged posts.");
     });
 });
-</script>
+
+    </script>
+</body>
+</html>
